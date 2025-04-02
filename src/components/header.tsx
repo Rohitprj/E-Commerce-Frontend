@@ -24,10 +24,6 @@ export default function header() {
             Taxes
           </p>
         </div>
-        {/* <div className="flex self-center">
-          <button className="text-[20px] flex items-center">Sign up</button>
-          <button className="text-[20px] h-12 flex items-center">Log in</button>
-        </div> */}
         <div className="flex self-center">
           <button className="text-[20px] flex items-center px-10 py-6 border-l border-black">
             Sign up
