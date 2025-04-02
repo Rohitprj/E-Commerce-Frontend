@@ -6,7 +6,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full border-b flex justify-between items-center px-6 py-4 bg-white">
+    <header className="w-full border-b flex justify-between items-center px-6  bg-white">
       {/* Logo */}
       <p className="text-black font-bold text-2xl md:text-[38px]">E-Commerce</p>
 
@@ -18,7 +18,7 @@ export default function Header() {
         {["About", "Feature", "Pricing", "Taxes"].map((item) => (
           <p
             key={item}
-            className="text-lg px-4 border border-transparent hover:border-black rounded-full transition duration-300 cursor-pointer"
+            className="text-lg px-4 py-2 border border-transparent hover:border-black rounded-full transition duration-300 cursor-pointer"
           >
             {item}
           </p>
@@ -27,10 +27,10 @@ export default function Header() {
 
       {/* Sign Up & Login (Desktop) */}
       <div className="hidden md:flex items-center">
-        <button className="text-lg px-6 py-2 border-l border-black">
+        <button className="text-lg px-9 py-6 border-l border-black">
           Sign up
         </button>
-        <button className="text-lg px-6 py-2 border-l border-black">
+        <button className="text-lg px-9 py-6 border-l border-black">
           Log in
         </button>
       </div>
