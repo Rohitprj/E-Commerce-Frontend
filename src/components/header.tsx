@@ -6,9 +6,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full border-b flex justify-between items-center px-6  bg-white">
+    <header className="w-full border-b flex justify-between items-center bg-white">
       {/* Logo */}
-      <p className="text-black font-bold text-2xl md:text-[38px]">E-Commerce</p>
+      <p className="text-black font-bold text-2xl md:text-[38px] ml-8">
+        E-Commerce
+      </p>
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-6">
@@ -30,7 +32,7 @@ export default function Header() {
         <button className="text-lg px-9 py-6 border-l border-black">
           Sign up
         </button>
-        <button className="text-lg px-9 py-6 border-l border-black">
+        <button className="text-lg px-9 py-6 border-l border-black text-white bg-black">
           Log in
         </button>
       </div>
