@@ -9,7 +9,7 @@ export default function Header() {
     <header className="w-full border-b flex justify-between items-center bg-white">
       {/* Logo */}
       <p className="text-black font-bold text-2xl md:text-[38px] ml-8">
-        E-Commerce
+        MyCommerce
       </p>
 
       {/* Desktop Navigation */}
