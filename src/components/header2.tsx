@@ -7,12 +7,14 @@ export default function header2() {
   const [searchText, setSearchText] = useState("");
 
   return (
-    <div>
+    <div className="border-b py-8">
       <div className="flex justify-center">
+        {/* Input box */}
         <div className="flex border border-b-black w-6xl py-3 px-2 rounded-sm">
           <button>
             <IoIosSearch size={22} color="grey" />
           </button>
+          {/* Input Area */}
           <input
             type="text"
             name="search"
