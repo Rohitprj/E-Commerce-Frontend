@@ -2,9 +2,9 @@ import React from "react";
 
 export default function footer() {
   return (
-    <div>
+    <div className="py-20 px-12">
       <div className="flex">
-        <h1 className="text-2xl">
+        <h1 className="text-5xl w-[550px]">
           Subscribe to get tips and tactics to grow the way you want.
         </h1>
         <li className="list-none font-bold">
