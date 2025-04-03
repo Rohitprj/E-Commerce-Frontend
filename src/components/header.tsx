@@ -51,7 +51,7 @@ export default function Header() {
           {["About", "Feature", "Pricing", "Taxes"].map((item) => (
             <p
               key={item}
-              className="text-lg border-b w-full text-center py-2 cursor-pointer"
+              className="text-lg w-full text-center py-2 cursor-pointer"
               onClick={() => setIsOpen(false)}
             >
               {item}
