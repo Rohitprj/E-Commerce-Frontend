@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { IoIosClose, IoIosSearch } from "react-icons/io";
 
-export default function header2() {
+export default function Header2() {
   const [searchText, setSearchText] = useState("");
 
   return (

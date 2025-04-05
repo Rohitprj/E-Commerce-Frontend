@@ -7,7 +7,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-export default function footer() {
+export default function Footer() {
   return (
     <div className="py-26 px-16 bg-black h-135">
       <div className="flex bg-amber-300 gap-12">
