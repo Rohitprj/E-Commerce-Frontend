@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import Header2 from "../components/Header2";
-import Footer from "../components/Footer";
+import Header from "../components/Header3";
+import Header2 from "../components/Header4";
+import Footer from "../components/Footer1";
 
 export default function Home() {
   return (
