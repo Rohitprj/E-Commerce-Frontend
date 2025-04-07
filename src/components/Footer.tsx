@@ -10,42 +10,47 @@ import {
 export default function Footer() {
   return (
     <div className="py-26 px-16 bg-black h-135">
-      <div className="flex bg-amber-300 gap-12">
-        <div className="flex flex-col gap-6">
-          <h1 className="text-5xl w-[550px] text-white">
-            Subscribe to get tips and tactics to grow the way you want.
-          </h1>
-          <div className="flex gap-1">
-            <div className="flex border border-b-black w-[520px] py-2 px-2 rounded-sm bg-white">
-              {/* Input Area */}
-              <input
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Search Products"
-                className="h-7 w-full px-2 border-0 outline-none"
-              />
-            </div>
-            <div className="p-4 border-1 rounded-sm bg-pink-400">
-              <FaArrowRight />
+      <div className="flex gap-16">
+        <div className="flex flex-col justify-between">
+          <div>
+            <h1 className="text-5xl w-[550px] text-white">
+              Subscribe to get tips and tactics to grow the way you want.
+            </h1>
+            <div className="flex gap-1 mt-12">
+              <div className="flex border border-b-black w-[520px] py-2 px-2 rounded-sm bg-white">
+                {/* Input Area */}
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  placeholder="Search Products"
+                  className="h-7 w-full px-2 border-0 outline-none"
+                />
+              </div>
+              <div className="p-4 border-1 rounded-sm bg-pink-400">
+                <FaArrowRight />
+              </div>
             </div>
           </div>
+          <div className="flex">
+            <h1 className="font-bold text-white text-[18px]">Shopster, Inc.</h1>
+          </div>
         </div>
-        <div className="w-full bg-blue-200 flex flex-col justify-between">
+        <div className="w-full flex flex-col justify-between gap-58">
           {/* make this both div space between */}
           <div className="flex justify-between">
-            <li className="w-1/2 list-none font-bold text-white">
+            <li className="w-1/2 list-none font-bold text-white leading-8 ">
               <ul>Taxes</ul>
               <ul>Terms of services</ul>
               <ul>Privacy policy</ul>
             </li>
-            <li className="w-1/2 list-none font-bold text-white">
+            <li className="w-1/2 list-none font-bold text-white leading-8">
               <ul>Features</ul>
               <ul>Pricing</ul>
               <ul>About</ul>
             </li>
           </div>
-          <div className="flex gap-16 ">
+          <div className="flex gap-26 ">
             <FaLinkedin color="white" size={30} />
             <FaGithub color="white" size={30} />
             <FaInstagram color="white" size={30} />
