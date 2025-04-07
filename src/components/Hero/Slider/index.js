@@ -74,7 +74,7 @@ export default function CustomSlider() {
   };
 
   return (
-    <div className="relative flex items-center max-w-4xl mx-auto">
+    <div className="relative flex items-center mx-auto">
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
@@ -87,7 +87,7 @@ export default function CustomSlider() {
       <div
         ref={scrollRef}
         className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 
-        py-2 bg-amber-300"
+        py-2 bg-amber-300 w-full"
       >
         {images.map((src, index) => (
           <div key={index} className="flex-shrink-0 w-1/2 snap-start">
