@@ -51,10 +51,34 @@ export default function Footer() {
             </li>
           </div>
           <div className="flex gap-26 ">
-            <FaLinkedin color="white" size={30} />
-            <FaGithub color="white" size={30} />
-            <FaInstagram color="white" size={30} />
-            <FaTwitter color="white" size={30} />
+            <a
+              href="https://www.linkedin.com/in/rohit-kumar-4b5800218/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin color="white" size={30} />
+            </a>
+            <a
+              href="https://github.com/Rohitprj"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaGithub color="white" size={30} />
+            </a>
+            <a
+              href="https://www.instagram.com/ro.hit1282/?utm_source=qr&igsh=MXRqdHFmdXAyMWNxMw%3D%3D#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram color="white" size={30} />
+            </a>
+            <a
+              href="https://x.com/Rohitkumar2OO1?t=VNeYMTFuVpzEQIeJkiNf-w&s=08"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaTwitter color="white" size={30} />
+            </a>
           </div>
         </div>
       </div>
