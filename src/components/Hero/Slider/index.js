@@ -86,14 +86,15 @@ export default function CustomSlider() {
       {/* Slider Container */}
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 py-2 bg-amber-300"
+        className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 
+        py-2 bg-amber-300"
       >
         {images.map((src, index) => (
           <div key={index} className="flex-shrink-0 w-1/2 snap-start">
             <img
               src={src}
               alt={`Slide ${index}`}
-              className="w-full h-64 object-cover rounded-md"
+              className="w-full h-98 object-cover rounded-md"
             />
           </div>
         ))}
