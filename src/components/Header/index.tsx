@@ -6,7 +6,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full border-b flex justify-between items-center bg-white sticky top-0">
+    <header className="w-full border-b flex justify-between items-center bg-white sticky top-0 z-50">
       {/* Logo */}
       <p className="text-black font-bold text-2xl md:text-[38px] ml-8">
         Shopster
