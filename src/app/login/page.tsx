@@ -10,6 +10,7 @@ export default function LoginPage() {
   return (
     <div className="flex items-center justify-center w-full h-screen">
       <div className="flex flex-col gap-4 p-8 rounded-md w-full max-w-md bg-gray-100">
+        <h1>Log In</h1>
         <label className="font-medium">Email</label>
         <div className="flex border border-black rounded-sm bg-white px-2 py-2">
           <input
