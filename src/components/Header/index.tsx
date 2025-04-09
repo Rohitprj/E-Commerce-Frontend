@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-6">
-        <button className="text-white text-lg bg-black px-5 py-2 rounded-full transition-all duration-300 hover:bg-gray-800">
+        <button className="text-white text-lg cursor-pointer bg-black px-5 py-2 rounded-full transition-all duration-300 hover:bg-gray-800">
           Home
         </button>
         {["About", "Feature", "Pricing", "Taxes"].map((item) => (
@@ -29,12 +30,16 @@ export default function Header() {
 
       {/* Sign Up & Login (Desktop) */}
       <div className="hidden md:flex items-center">
-        <button className="text-lg px-9 py-6 border-l border-black">
-          Sign up
-        </button>
-        <button className="text-lg px-9 py-6 border-l border-black text-white bg-black">
-          Log in
-        </button>
+        <Link href={"/signup"}>
+          <button className="text-lg px-9 py-6 border-l border-black cursor-pointer">
+            Sign up
+          </button>
+        </Link>
+        <Link href={"/login"}>
+          <button className="text-lg px-9 cursor-pointer py-6 border-l border-black text-white bg-black">
+            Log in
+          </button>
+        </Link>
       </div>
 
       {/* Mobile Menu Button */}
@@ -58,7 +63,9 @@ export default function Header() {
             </p>
           ))}
           <button className="text-lg border-t w-full py-3">Sign up</button>
-          <button className="text-lg w-full py-3">Log in</button>
+          <Link href={"../../app/Login/index.tsx"}>
+            <button className="text-lg w-full py-3">Log in</button>
+          </Link>
         </div>
       )}
     </header>
