@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -47,7 +46,10 @@ export default function CustomSlider() {
             <img
               src={src}
               alt={`Slide ${index}`}
-              className="w-full h-98 object-cover rounded-md border-1"
+              className="w-full h-98 object-cover rounded-md border-1 cursor-pointer shadow-none 
+            hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+            hover:translate-x-0 hover:translate-y-0 
+            active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
             />
           </div>
         ))}
