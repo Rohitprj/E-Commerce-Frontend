@@ -44,7 +44,7 @@ export default function CustomSlider() {
       >
         {images.map((src, index) => (
           <div key={index} className="flex-shrink-0 w-1/2 snap-start">
-            <Image
+            <img
               src={src}
               alt={`Slide ${index}`}
               className="w-full h-98 object-cover rounded-md border-1"
