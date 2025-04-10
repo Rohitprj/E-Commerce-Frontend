@@ -1,62 +1,14 @@
-// "use client";
-
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Pagination, Navigation } from "swiper/modules";
-
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-
-// export default function Slider() {
-//   return (
-//     <div style={{ width: "100%", maxWidth: "800px", margin: "0 auto" }}>
-//       <Swiper
-//         modules={[Pagination, Navigation]}
-//         cssMode={true}
-//         pagination={{ clickable: true }}
-//         navigation={true}
-//         loop={true}
-//         style={{
-//           height: "400px",
-//           backgroundColor: "red",
-//         }}
-//       >
-//         <SwiperSlide>
-//           <img
-//             src="/images/slide1.jpg"
-//             alt="Slide 1"
-//             style={{ width: "100%", height: "100%", objectFit: "cover" }}
-//           />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img
-//             src="/images/slide2.jpg"
-//             alt="Slide 2"
-//             style={{ width: "100%", height: "100%", objectFit: "cover" }}
-//           />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img
-//             src="/images/slide3.jpg"
-//             alt="Slide 3"
-//             style={{ width: "100%", height: "100%", objectFit: "cover" }}
-//           />
-//         </SwiperSlide>
-//       </Swiper>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { useRef } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const images = [
-  "/images/slide1.jpg",
-  "/images/slide2.jpg",
-  "/images/slide3.jpg",
-  "/images/slide4.jpg",
-  "/images/slide5.jpg",
+  "/assets/images/download.jpeg",
+  "/assets/images/clothes.jpeg",
+  "/assets/images/download.jpeg",
+  "/assets/images/clothes.jpeg",
+  "/assets/images/download.jpeg",
 ];
 
 export default function CustomSlider() {
@@ -78,23 +30,23 @@ export default function CustomSlider() {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="z-10 p-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-70"
+        className="z-10 p-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-70 mr-4"
       >
-        ◀
+        <FaArrowLeft />
       </button>
 
       {/* Slider Container */}
       <div
         ref={scrollRef}
         className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 
-        py-2 bg-amber-300 w-full"
+        py-2 w-full"
       >
         {images.map((src, index) => (
           <div key={index} className="flex-shrink-0 w-1/2 snap-start">
             <img
               src={src}
               alt={`Slide ${index}`}
-              className="w-full h-98 object-cover rounded-md"
+              className="w-full h-98 object-cover rounded-md border-1"
             />
           </div>
         ))}
@@ -105,7 +57,7 @@ export default function CustomSlider() {
         onClick={() => scroll("right")}
         className="z-10 p-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-70"
       >
-        ▶
+        <FaArrowRight />
       </button>
     </div>
   );
