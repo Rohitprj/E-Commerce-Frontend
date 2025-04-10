@@ -7,7 +7,7 @@ export default function Header2() {
   const [searchText, setSearchText] = useState("");
 
   return (
-    <div className="border-b py-8">
+    <div className="border-b py-8 bg-gray-100">
       <div className="flex justify-center">
         {/* Input box */}
         <div className="flex border border-b-black w-6xl py-3 px-2 rounded-sm">
