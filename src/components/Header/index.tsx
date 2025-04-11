@@ -21,7 +21,9 @@ export default function Header() {
         {["About", "Feature", "Pricing", "Taxes"].map((item) => (
           <p
             key={item}
-            className="text-lg px-4 py-2 border border-transparent hover:border-black rounded-full transition duration-300 cursor-pointer"
+            className="text-lg px-4 py-2 border border-transparent
+            hover:border-black rounded-full transition duration-300 
+            cursor-pointer"
           >
             {item}
           </p>
