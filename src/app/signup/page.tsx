@@ -36,10 +36,11 @@ export default function SignupPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
 
       const data = await res.json();
-
+      console.log("data :", data);
       if (res.ok) {
         setSuccess("Account created successfully!");
         setEmail("");
