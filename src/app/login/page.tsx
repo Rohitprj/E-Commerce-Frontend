@@ -90,7 +90,7 @@ export default function LoginPage() {
               loading ? "bg-gray-600" : "bg-black hover:bg-gray-900"
             }`}
         >
-          {loading ? "Creating..." : "Log in"}
+          {loading ? "..." : "Log in"}
         </button>
         <div className="flex justify-center">
           <h1>

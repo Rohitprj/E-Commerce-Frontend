@@ -6,6 +6,7 @@ import React, { useState } from "react";
 
 export default function SignupPage() {
   const api = "https://backend.rohitkumar.site/auth/signUp";
+  const api1 = "https://backend.rohitkumar.site/auth/logIn";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,10 +36,15 @@ export default function SignupPage() {
         { email, password },
         { withCredentials: true }
       );
-
+      const callLogin = await axios.post(
+        api1,
+        { email, password },
+        { withCredentials: true }
+      );
       console.log("data:", response.data);
+      console.log("callLogin:", callLogin.data);
 
-      setSuccess("Account created successfully!");
+      setSuccess("Signup successfully!");
       setEmail("");
       setPassword("");
     } catch (err: any) {
