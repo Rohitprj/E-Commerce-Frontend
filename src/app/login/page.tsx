@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -29,26 +30,23 @@ export default function LoginPage() {
       return;
     }
     try {
-      const res = await fetch(api, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
-      const data = await res.json();
-      console.log("data : ", data);
-      if (res.ok) {
-        setSuccess("Login Successfully !");
-        setEmail("");
-        setPassword("");
-      } else {
-        setError(data.message || "Login failed.");
-      }
-    } catch (err: unknown) {
+      const response = await axios.post(
+        api,
+        { email, password },
+        { withCredentials: true }
+      );
+      console.log("data", response.data);
+
+      setSuccess("Login Successfully !");
+      setEmail("");
+      setPassword("");
+    } catch (err: any) {
       console.log(err);
-      setError("Something went wrong. Please try again later.");
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Something went wrong. Please try again later.");
+      }
     } finally {
       setLoading(false);
     }

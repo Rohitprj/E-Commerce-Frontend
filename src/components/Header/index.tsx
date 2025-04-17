@@ -37,7 +37,7 @@ export default function Header() {
             Sign up
           </button>
         </Link>
-        <Link href={"/StartSelling"}>
+        <Link href={"/startSelling"}>
           <button className="text-lg px-9 cursor-pointer py-6 border-l border-black text-white bg-black">
             Start Selling
           </button>

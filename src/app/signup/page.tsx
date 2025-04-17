@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -22,7 +23,6 @@ export default function SignupPage() {
     setError("");
     setSuccess("");
 
-    // Email format validation
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       setLoading(false);
@@ -30,27 +30,24 @@ export default function SignupPage() {
     }
 
     try {
-      const res = await fetch(api, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
+      const response = await axios.post(
+        api,
+        { email, password },
+        { withCredentials: true }
+      );
 
-      const data = await res.json();
-      console.log("data :", data);
-      if (res.ok) {
-        setSuccess("Account created successfully!");
-        setEmail("");
-        setPassword("");
-      } else {
-        setError(data.message || "Signup failed.");
-      }
-    } catch (err: unknown) {
+      console.log("data:", response.data);
+
+      setSuccess("Account created successfully!");
+      setEmail("");
+      setPassword("");
+    } catch (err: any) {
       console.log(err);
-      setError("Something went wrong. Please try again later.");
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Something went wrong. Please try again later.");
+      }
     } finally {
       setLoading(false);
     }
