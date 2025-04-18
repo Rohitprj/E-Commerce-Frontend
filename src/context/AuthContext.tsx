@@ -1,5 +1,7 @@
+"use client";
+
 import React, { createContext, useEffect, useState } from "react";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 export default function AuthContext({
   children,
