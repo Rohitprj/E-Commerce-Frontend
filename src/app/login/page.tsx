@@ -2,23 +2,34 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BASE_URL } from "../../../utils/axiosInstance";
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const api = `${BASE_URL}/auth/logIn`;
   const router = useRouter();
 
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("rohitprj@gmail.com");
+  const [password, setPassword] = useState<string>("123456");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
+  const { user } = useAuthContext();
+
   function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+  }
+
+  // useEffect(() => {
+  //   console.log({ user });
+  // }, [user]);
+
+  if (router && !user.isLoading && user.isLoggedIn) {
+    router.replace("/");
   }
 
   async function loginApi(): Promise<void> {
@@ -39,12 +50,9 @@ export default function LoginPage() {
         { withCredentials: true }
       );
       console.log("data", response.data);
-
       setSuccess("Login Successfully!");
       setEmail("");
       setPassword("");
-
-      // Redirect to home page after successful login
       router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
@@ -58,7 +66,7 @@ export default function LoginPage() {
     }
   }
 
-  return (
+  return user.isLoading ? null : (
     <div className="flex items-center justify-center w-full h-screen">
       <div className="flex flex-col gap-4 p-8 rounded-md w-full max-w-md bg-gray-100">
         <h2 className="text-2xl font-bold text-center mb-2">Log In</h2>

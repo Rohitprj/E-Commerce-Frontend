@@ -1,24 +1,41 @@
 "use client";
 
-import React, { createContext, useEffect, useState } from "react";
-import axiosInstance from "../../utils/axiosInstance";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axiosInstance, { BASE_URL } from "../../utils/axiosInstance";
+import axios from "axios";
 
-export default function AuthContext({
+interface AuthContextProp {
+  accessToken: string;
+  setAccessToken: (token: string) => void;
+  user: {
+    email: string;
+    isLoggedIn: boolean;
+    isLoading: boolean;
+  };
+}
+
+const AuthContext = createContext<AuthContextProp>({
+  accessToken: "",
+  setAccessToken: () => {},
+  user: {
+    email: "",
+    isLoggedIn: false,
+    isLoading: true,
+  },
+});
+
+export default function AuthContextProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  interface AuthContextProp {
-    accessToken: string;
-    setAccessToken: (token: string) => void;
-  }
-
-  const AuthContext = createContext<AuthContextProp>({
-    accessToken: "",
-    setAccessToken: () => {},
+  const [accessToken, setAccessToken] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    isLoggedIn: false,
+    isLoading: true,
   });
 
-  const [accessToken, setAccessToken] = useState("");
   useEffect(() => {
     async function getToken() {
       try {
@@ -31,11 +48,43 @@ export default function AuthContext({
         console.log("Failed to get Token", error);
       }
     }
+
+    (async function () {
+      try {
+        const { data } = await axios.get(`${BASE_URL}/auth/is_loggedin`, {
+          withCredentials: true,
+        });
+        const userData = await data;
+        if (userData.is_loggedin) {
+          setUser((e) => ({
+            ...e,
+            isLoggedIn: true,
+            email: userData.data.email,
+          }));
+          // console.log({ USER2: user });
+        }
+        // console.log({ USER: user });
+      } catch (error) {
+        console.log({ error });
+      } finally {
+        setUser((e) => ({ ...e, isLoading: false }));
+      }
+    })();
+
     getToken();
   }, []);
+
+  // useEffect(() => {
+  //   console.log({ "Context USER": user });
+  // }, [user]);
+
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken }}>
+    <AuthContext.Provider value={{ accessToken, setAccessToken, user }}>
       {children}
     </AuthContext.Provider>
   );
 }
+
+export const useAuthContext = () => {
+  return useContext(AuthContext);
+};
