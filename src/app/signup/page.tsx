@@ -2,9 +2,11 @@
 
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function SignupPage() {
+  const router = useRouter();
   const api = "https://backend.rohitkumar.site/auth/signUp";
   const api1 = "https://backend.rohitkumar.site/auth/logIn";
 
@@ -45,6 +47,7 @@ export default function SignupPage() {
       console.log("callLogin:", callLogin.data);
 
       setSuccess("Signup successfully!");
+      router.push("/");
       setEmail("");
       setPassword("");
     } catch (err: any) {
