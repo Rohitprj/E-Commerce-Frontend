@@ -1,27 +1,27 @@
 "use client";
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function SignupPage() {
   const router = useRouter();
-  const api = "https://backend.rohitkumar.site/auth/signUp";
-  const api1 = "https://backend.rohitkumar.site/auth/logIn";
+  const signUpApi = "https://backend.rohitkumar.site/auth/signUp";
+  const loginApi = "https://backend.rohitkumar.site/auth/logIn";
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
 
-  function validateEmail(email: string) {
+  function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
 
-  async function signupApi() {
+  async function signupApi(): Promise<void> {
     setLoading(true);
     setError("");
     setSuccess("");
@@ -33,27 +33,31 @@ export default function SignupPage() {
     }
 
     try {
-      const response = await axios.post(
-        api,
+      const signUpResponse = await axios.post(
+        signUpApi,
         { email, password },
         { withCredentials: true }
       );
-      const callLogin = await axios.post(
-        api1,
+
+      const loginResponse = await axios.post(
+        loginApi,
         { email, password },
         { withCredentials: true }
       );
-      console.log("data:", response.data);
-      console.log("callLogin:", callLogin.data);
+
+      console.log("Signup Response:", signUpResponse.data);
+      console.log("Login Response:", loginResponse.data);
 
       setSuccess("Signup successfully!");
-      router.push("/");
       setEmail("");
       setPassword("");
-    } catch (err: any) {
-      console.log(err);
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
+
+      // Redirect after success
+      router.push("/");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        const axiosErr = err as AxiosError<{ message: string }>;
+        setError(axiosErr.response?.data?.message || "An error occurred.");
       } else {
         setError("Something went wrong. Please try again later.");
       }

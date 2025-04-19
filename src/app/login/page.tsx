@@ -1,34 +1,36 @@
 "use client";
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const api = "https://backend.rohitkumar.site/auth/logIn";
+  const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
 
-  function validateEmail(email: string) {
+  function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
 
-  async function loginApi() {
+  async function loginApi(): Promise<void> {
     setLoading(true);
     setError("");
     setSuccess("");
 
-    // email validation
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       setLoading(false);
       return;
     }
+
     try {
       const response = await axios.post(
         api,
@@ -37,13 +39,16 @@ export default function LoginPage() {
       );
       console.log("data", response.data);
 
-      setSuccess("Login Successfully !");
+      setSuccess("Login Successfully!");
       setEmail("");
       setPassword("");
-    } catch (err: any) {
-      console.log(err);
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
+
+      // Redirect to home page after successful login
+      router.push("/");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        const axiosError = err as AxiosError<{ message: string }>;
+        setError(axiosError.response?.data?.message || "An error occurred.");
       } else {
         setError("Something went wrong. Please try again later.");
       }
@@ -92,10 +97,11 @@ export default function LoginPage() {
         >
           {loading ? "..." : "Log in"}
         </button>
+
         <div className="flex justify-center">
           <h1>
             New user{" "}
-            <Link href={"signup"}>
+            <Link href="/signup">
               <button className="cursor-pointer underline font-bold">
                 Sign up
               </button>

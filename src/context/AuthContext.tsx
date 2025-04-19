@@ -9,7 +9,7 @@ export default function AuthContext({
   children: React.ReactNode;
 }) {
   interface AuthContextProp {
-    accessToken: String;
+    accessToken: string;
     setAccessToken: (token: string) => void;
   }
 
