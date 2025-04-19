@@ -2,21 +2,24 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname;
-  const publicPath = path === "/login" || path === "/signup";
-  const cookies = request.cookies.get("refreshToken")?.value || " ";
+export async function middleware(request: NextRequest) {
+  console.log("first");
+  // const path = request.nextUrl.pathname;
+  // const publicPath = path === "/login" || path === "/signup";
+  const cookies = request.cookies;
+  const cookies1 = request.cookies.has("refreshToken");
+  console.log("Cookie : ", cookies.getAll());
+  console.log("Cookie1 : ", cookies1);
 
-  if (publicPath || cookies) {
-    return NextResponse.redirect(new URL("/", request.url));
-  }
-  if (!publicPath || !cookies) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
+  // if (publicPath || cookies) {
+  //   return NextResponse.redirect(new URL("/", request.url));
+  // }
+  // if (!publicPath || !cookies) {
+  //   return NextResponse.redirect(new URL("/", request.url));
+  // }
   return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
-export const config = {
-  matcher: ["/login", "/signup"],
-};
+// export const config = {
+// };

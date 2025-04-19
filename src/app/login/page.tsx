@@ -4,9 +4,10 @@ import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "../../../utils/axiosInstance";
 
 export default function LoginPage() {
-  const api = "https://backend.rohitkumar.site/auth/logIn";
+  const api = `${BASE_URL}/auth/logIn`;
   const router = useRouter();
 
   const [email, setEmail] = useState<string>("");
