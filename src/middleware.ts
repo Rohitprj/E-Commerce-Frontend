@@ -4,10 +4,12 @@ import type { NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
-  // console.log("first");
+  console.log("first");
   // const path = request.nextUrl.pathname;
   // const publicPath = path === "/login" || path === "/signup";
-  // const cookies = request.cookies;
+  const cookies = request.cookies.get("refreshToken")?.value;
+  console.log("Cookie : ", cookies);
+
   // const cookies1 = request.cookies.has("refreshToken");
   // console.log("Cookie : ", cookies.getAll());
   // console.log("Cookie1 : ", cookies1);

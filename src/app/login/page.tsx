@@ -53,7 +53,7 @@ export default function LoginPage() {
       setSuccess("Login Successfully!");
       setEmail("");
       setPassword("");
-      router.push("/");
+      // router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         const axiosError = err as AxiosError<{ message: string }>;

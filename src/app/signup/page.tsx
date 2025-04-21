@@ -54,7 +54,7 @@ export default function SignupPage() {
       setPassword("");
 
       // Redirect after success
-      router.push("/");
+      // router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         const axiosErr = err as AxiosError<{ message: string }>;
