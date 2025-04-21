@@ -2,7 +2,7 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BASE_URL } from "../../../utils/axiosInstance";
 import { useAuthContext } from "@/context/AuthContext";

@@ -2,12 +2,12 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { BASE_URL } from "../../../utils/axiosInstance";
 
 export default function SignupPage() {
-  const router = useRouter();
+  // const router = useRouter();
   const signUpApi = `${BASE_URL}/auth/signUp`;
   const loginApi = `${BASE_URL}/auth/logIn`;
 
