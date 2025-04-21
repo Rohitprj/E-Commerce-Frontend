@@ -49,34 +49,28 @@ export default function AuthContextProvider({
       }
     }
 
-    (async function () {
-      try {
-        const { data } = await axios.get(`${BASE_URL}/auth/is_loggedin`, {
-          withCredentials: true,
-        });
-        const userData = await data;
-        if (userData.is_loggedin) {
-          setUser((e) => ({
-            ...e,
-            isLoggedIn: true,
-            email: userData.data.email,
-          }));
-          // console.log({ USER2: user });
-        }
-        // console.log({ USER: user });
-      } catch (error) {
-        console.log({ error });
-      } finally {
-        setUser((e) => ({ ...e, isLoading: false }));
-      }
-    })();
+    // (async function () {
+    //   try {
+    //     const { data } = await axios.get(`${BASE_URL}/auth/is_loggedin`, {
+    //       withCredentials: true,
+    //     });
+    //     const userData = await data;
+    //     if (userData.is_loggedin) {
+    //       setUser((e) => ({
+    //         ...e,
+    //         isLoggedIn: true,
+    //         email: userData.data.email,
+    //       }));
+    //     }
+    //   } catch (error) {
+    //     console.log({ error });
+    //   } finally {
+    //     setUser((e) => ({ ...e, isLoading: false }));
+    //   }
+    // })();
 
     getToken();
   }, []);
-
-  // useEffect(() => {
-  //   console.log({ "Context USER": user });
-  // }, [user]);
 
   return (
     <AuthContext.Provider value={{ accessToken, setAccessToken, user }}>

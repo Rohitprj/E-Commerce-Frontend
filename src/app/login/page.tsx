@@ -11,8 +11,8 @@ export default function LoginPage() {
   const api = `${BASE_URL}/auth/logIn`;
   const router = useRouter();
 
-  const [email, setEmail] = useState<string>("rohitprj@gmail.com");
-  const [password, setPassword] = useState<string>("123456");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
@@ -23,11 +23,6 @@ export default function LoginPage() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-
-  // useEffect(() => {
-  //   console.log({ user });
-  // }, [user]);
-
   if (router && !user.isLoading && user.isLoggedIn) {
     router.replace("/");
   }
@@ -66,7 +61,8 @@ export default function LoginPage() {
     }
   }
 
-  return user.isLoading ? null : (
+  // return user.isLoading ? null : (
+  return (
     <div className="flex items-center justify-center w-full h-screen">
       <div className="flex flex-col gap-4 p-8 rounded-md w-full max-w-md bg-gray-100">
         <h2 className="text-2xl font-bold text-center mb-2">Log In</h2>

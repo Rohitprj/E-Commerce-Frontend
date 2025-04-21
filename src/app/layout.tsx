@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthContext from "../context/AuthContext";
-import ServerWrapper from "./serverWrapper";
+// import ServerWrapper from "./serverWrapper";
 // import { BASE_URL } from "../../utils/axiosInstance";
 // import axios from "axios";
 
@@ -38,9 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ServerWrapper>
-          <AuthContext>{children}</AuthContext>
-        </ServerWrapper>
+        {/* <ServerWrapper> */}
+        <AuthContext>{children}</AuthContext>
+        {/* </ServerWrapper> */}
       </body>
     </html>
   );
