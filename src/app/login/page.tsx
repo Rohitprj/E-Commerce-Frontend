@@ -3,13 +3,11 @@
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
-// import { useRouter } from "next/navigation";
 import { BASE_URL } from "../../../utils/axiosInstance";
 import { useAuthContext } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const api = `${BASE_URL}/auth/logIn`;
-  // const router = useRouter();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -49,7 +47,6 @@ export default function LoginPage() {
       setSuccess("Login Successfully!");
       setEmail("");
       setPassword("");
-      // router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         const axiosError = err as AxiosError<{ message: string }>;
