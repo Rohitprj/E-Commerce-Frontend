@@ -14,7 +14,7 @@ interface AuthContextProp {
   };
 }
 
-const AuthContext = createContext<AuthContextProp>({
+export const AuthContext = createContext<AuthContextProp>({
   accessToken: "",
   setAccessToken: () => {},
   user: {

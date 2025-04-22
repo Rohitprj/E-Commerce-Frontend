@@ -2,10 +2,10 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BASE_URL } from "../../../utils/axiosInstance";
-import { useAuthContext } from "@/context/AuthContext";
+import { AuthContext, useAuthContext } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const api = `${BASE_URL}/auth/logIn`;
@@ -60,7 +60,8 @@ export default function LoginPage() {
       setLoading(false);
     }
   }
-
+  const data = useContext(AuthContext);
+  console.log("UserData", data);
   // return user.isLoading ? null : (
   return (
     <div className="flex items-center justify-center w-full h-screen">
