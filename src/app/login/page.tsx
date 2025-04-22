@@ -2,14 +2,14 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+// import { useRouter } from "next/navigation";
 import { BASE_URL } from "../../../utils/axiosInstance";
-import { AuthContext, useAuthContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function LoginPage() {
   const api = `${BASE_URL}/auth/logIn`;
-  const router = useRouter();
+  // const router = useRouter();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
