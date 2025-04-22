@@ -18,14 +18,15 @@ export default function LoginPage() {
   const [success, setSuccess] = useState<string>("");
 
   const { user } = useAuthContext();
+  console.log("UserData", user);
 
   function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-  if (router && !user.isLoading && user.isLoggedIn) {
-    router.replace("/");
-  }
+  // if (router && !user.isLoading && user.isLoggedIn) {
+  //   router.replace("/");
+  // }
 
   async function loginApi(): Promise<void> {
     setLoading(true);
@@ -60,8 +61,7 @@ export default function LoginPage() {
       setLoading(false);
     }
   }
-  const data = useContext(AuthContext);
-  console.log("UserData", data);
+
   // return user.isLoading ? null : (
   return (
     <div className="flex items-center justify-center w-full h-screen">
