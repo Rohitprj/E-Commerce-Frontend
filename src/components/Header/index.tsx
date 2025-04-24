@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { user } = useAuthContext();
+  console.log("UserData", user);
   return (
     <header className="w-full border-b flex justify-between items-center bg-white sticky top-0 z-50">
       {/* Logo */}
@@ -32,11 +34,20 @@ export default function Header() {
 
       {/* Sign Up & Login (Desktop) */}
       <div className="hidden md:flex items-center">
-        <Link href={"/signup"}>
-          <button className="text-lg px-9 py-6 border-l border-black cursor-pointer">
-            Sign up
-          </button>
-        </Link>
+        {user?.isLoggedIn && !user?.isLoading ? (
+          <Link href={"/dashboard"}>
+            <button className="text-lg px-9 py-6 border-l border-black cursor-pointer">
+              Dashboard
+            </button>
+          </Link>
+        ) : (
+          <Link href={"/signup"}>
+            <button className="text-lg px-9 py-6 border-l border-black cursor-pointer">
+              Sign up
+            </button>
+          </Link>
+        )}
+
         <Link href={"/startSelling"}>
           <button className="text-lg px-9 cursor-pointer py-6 border-l border-black text-white bg-black">
             Start Selling

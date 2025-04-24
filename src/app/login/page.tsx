@@ -18,7 +18,7 @@ export default function LoginPage() {
   const [success, setSuccess] = useState<string>("");
 
   const { user } = useAuthContext();
-  console.log("UserData", user);
+  console.log("UserLogInData", user);
 
   function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
