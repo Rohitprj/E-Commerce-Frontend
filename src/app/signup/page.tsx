@@ -2,12 +2,13 @@
 
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useAuthContext } from "@/context/AuthContext";
 import React, { useState } from "react";
 import { BASE_URL } from "../../../utils/axiosInstance";
 
 export default function SignupPage() {
-  // const router = useRouter();
+  const router = useRouter();
   const signUpApi = `${BASE_URL}/auth/signUp`;
   const loginApi = `${BASE_URL}/auth/logIn`;
 
@@ -17,11 +18,16 @@ export default function SignupPage() {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
+  const { user } = useAuthContext();
+  console.log("UserData", user);
+
   function validateEmail(email: string): boolean {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-
+  if (router && !user.isLoading && user.isLoggedIn) {
+    router.replace("/");
+  }
   async function signupApi(): Promise<void> {
     setLoading(true);
     setError("");

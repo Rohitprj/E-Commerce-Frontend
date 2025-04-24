@@ -5,8 +5,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BASE_URL } from "../../../utils/axiosInstance";
 import { useAuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
   const api = `${BASE_URL}/auth/logIn`;
 
   const [email, setEmail] = useState<string>("");
@@ -22,9 +24,9 @@ export default function LoginPage() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-  // if (router && !user.isLoading && user.isLoggedIn) {
-  //   router.replace("/");
-  // }
+  if (router && !user.isLoading && user.isLoggedIn) {
+    router.replace("/");
+  }
 
   async function loginApi(): Promise<void> {
     setLoading(true);
