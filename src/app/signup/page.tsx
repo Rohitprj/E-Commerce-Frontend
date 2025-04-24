@@ -25,9 +25,9 @@ export default function SignupPage() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-  if (router && !user.isLoading && user.isLoggedIn) {
-    router.replace("/");
-  }
+  // if (router && !user.isLoading && user.isLoggedIn) {
+  //   router.replace("/");
+  // }
   async function signupApi(): Promise<void> {
     setLoading(true);
     setError("");
@@ -60,7 +60,7 @@ export default function SignupPage() {
       setPassword("");
 
       // Redirect after success
-      // router.push("/");
+      router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         const axiosErr = err as AxiosError<{ message: string }>;

@@ -24,9 +24,9 @@ export default function LoginPage() {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
-  if (router && !user.isLoading && user.isLoggedIn) {
-    router.replace("/");
-  }
+  // if (router && !user.isLoading && user.isLoggedIn) {
+  //   router.replace("/");
+  // }
 
   async function loginApi(): Promise<void> {
     setLoading(true);
@@ -49,6 +49,7 @@ export default function LoginPage() {
       setSuccess("Login Successfully!");
       setEmail("");
       setPassword("");
+      router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         const axiosError = err as AxiosError<{ message: string }>;
