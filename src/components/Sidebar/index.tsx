@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
       if (response.status === 200) {
         console.log("Logout successful");
         // Redirect to login or home
-        window.location.href = "/login"; // or / if you want to go back to home
+        window.location.href = "/"; // or / if you want to go back to home
       } else {
         console.error("Logout failed:", response.data.message);
       }
@@ -80,7 +80,7 @@ const Sidebar: React.FC = () => {
                   logout();
                 }}
                 className="flex flex-row justify-between items-center text-sm
-              font-medium w-full"
+              font-medium w-full cursor-pointer"
               >
                 Logout
                 <LogOut size={18} />
