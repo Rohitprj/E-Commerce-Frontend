@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
   const [open, setOpen] = useState(true);
   const isActive = (path: string) => pathname === path;
 
-  const api = `${BASE_URL}/auth/login`;
+  const api = `${BASE_URL}/auth/logout`;
   async function logout() {
     try {
       const response = await axiosInstance.post(api);
