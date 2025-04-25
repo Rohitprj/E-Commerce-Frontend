@@ -3,12 +3,30 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LogOut } from "lucide-react";
+import axiosInstance, { BASE_URL } from "../../../utils/axiosInstance";
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(true);
   const isActive = (path: string) => pathname === path;
 
+  const api = `${BASE_URL}/auth/login`;
+  async function logout() {
+    try {
+      const response = await axiosInstance.post(api);
+
+      if (response.status === 200) {
+        console.log("Logout successful");
+        // Redirect to login or home
+        window.location.href = "/login"; // or / if you want to go back to home
+      } else {
+        console.error("Logout failed:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  }
   return (
     <div className="h-screen w-64 bg-black shadow-md fixed top-0 left-0 p-6">
       <h2 className="text-xl font-semibold text-white mb-6">Shopster</h2>
@@ -50,13 +68,26 @@ const Sidebar: React.FC = () => {
           Logout
         </button>
         {open ? (
-          <div className="relative bg-white text-black p-3 rounded-md mt-3">
-            <div className="absolute -top-2 left-4 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white" />
-            <button className="text-sm font-medium">Logout</button>
+          <div className="relative">
+            <div className="relative bg-white text-black p-3 rounded-md shadow-md w-40">
+              <div
+                className="absolute -top-2 left-4 border-l-8 
+              border-r-8 border-b-8 border-l-transparent border-r-transparent
+              border-b-white"
+              />
+              <button
+                onClick={() => {
+                  logout();
+                }}
+                className="flex flex-row justify-between items-center text-sm
+              font-medium w-full"
+              >
+                Logout
+                <LogOut size={18} />
+              </button>
+            </div>
           </div>
-        ) : (
-          ""
-        )}
+        ) : null}
       </nav>
     </div>
   );
