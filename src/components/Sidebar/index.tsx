@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
-
+  const [open, setOpen] = useState(true);
   const isActive = (path: string) => pathname === path;
 
   return (
@@ -43,9 +43,20 @@ const Sidebar: React.FC = () => {
         >
           Settings
         </Link>
-        <Link href="" className="block text-white/70 hover:text-white pt-2">
+        <button
+          onClick={() => setOpen((prev) => !prev)}
+          className="block text-white/70 hover:text-white pt-2"
+        >
           Logout
-        </Link>
+        </button>
+        {open ? (
+          <div className="relative bg-white text-black p-3 rounded-md mt-3">
+            <div className="absolute -top-2 left-4 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white" />
+            <button className="text-sm font-medium">Logout</button>
+          </div>
+        ) : (
+          ""
+        )}
       </nav>
     </div>
   );
