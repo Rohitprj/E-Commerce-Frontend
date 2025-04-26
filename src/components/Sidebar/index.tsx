@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
 import axiosInstance, { BASE_URL } from "../../../utils/axiosInstance";
 
 const Sidebar: React.FC = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(true);
   const isActive = (path: string) => pathname === path;
@@ -17,9 +18,9 @@ const Sidebar: React.FC = () => {
       const response = await axiosInstance.post(api);
 
       if (response.status === 200) {
-        console.log("Logout successful");
+        console.log("Logout successful", response.status);
         // Redirect to login or home
-        window.location.href = "/"; // or / if you want to go back to home
+        router.push("/");
       } else {
         console.error("Logout failed:", response.data.message);
       }
