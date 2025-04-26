@@ -12,6 +12,13 @@ interface AuthContextProp {
     isLoggedIn: boolean;
     isLoading: boolean;
   };
+  setUser: React.Dispatch<
+    React.SetStateAction<{
+      email: string;
+      isLoggedIn: boolean;
+      isLoading: boolean;
+    }>
+  >;
 }
 
 export const AuthContext = createContext<AuthContextProp>({
@@ -22,6 +29,7 @@ export const AuthContext = createContext<AuthContextProp>({
     isLoggedIn: false,
     isLoading: true,
   },
+  setUser: () => {},
 });
 
 export default function AuthContextProvider({
@@ -73,7 +81,9 @@ export default function AuthContextProvider({
   }, []);
 
   return (
-    <AuthContext.Provider value={{ accessToken, setAccessToken, user }}>
+    <AuthContext.Provider
+      value={{ accessToken, setAccessToken, user, setUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

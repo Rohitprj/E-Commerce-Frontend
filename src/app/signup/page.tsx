@@ -18,7 +18,7 @@ export default function SignupPage() {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
-  const { user } = useAuthContext();
+  const { user, setUser } = useAuthContext();
   console.log("UserSignUpData", user);
 
   function validateEmail(email: string): boolean {
@@ -56,6 +56,14 @@ export default function SignupPage() {
       console.log("Login Response:", loginResponse.data);
 
       setSuccess("Signup successfully!");
+      if (signUpResponse.status && loginResponse.status === 200) {
+        const userData = signUpResponse.data;
+        setUser({
+          email: userData.email,
+          isLoggedIn: true,
+          isLoading: false,
+        });
+      }
       setEmail("");
       setPassword("");
 

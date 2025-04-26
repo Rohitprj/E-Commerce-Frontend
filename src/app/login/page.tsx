@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
-  const { user } = useAuthContext();
+  const { user, setUser } = useAuthContext();
   console.log("UserLogInData", user);
 
   function validateEmail(email: string): boolean {
@@ -47,6 +47,14 @@ export default function LoginPage() {
       );
       console.log("data", response.data);
       setSuccess("Login Successfully!");
+      if (response.status === 200) {
+        const userData = response.data; // Assuming the response contains user data
+        setUser({
+          email: userData.email,
+          isLoggedIn: true,
+          isLoading: false,
+        });
+      }
       setEmail("");
       setPassword("");
       router.push("/");

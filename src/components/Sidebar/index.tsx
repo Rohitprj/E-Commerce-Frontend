@@ -5,13 +5,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
 import axiosInstance, { BASE_URL } from "../../../utils/axiosInstance";
+import { useAuthContext } from "@/context/AuthContext";
 
 const Sidebar: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const isActive = (path: string) => pathname === path;
-
+  const { setUser } = useAuthContext();
   const api = `${BASE_URL}/auth/logout`;
   async function logout() {
     try {
@@ -19,6 +20,11 @@ const Sidebar: React.FC = () => {
 
       if (response.status === 200) {
         console.log("Logout successful", response.status);
+        setUser({
+          email: "",
+          isLoggedIn: false,
+          isLoading: false,
+        });
         // Redirect to login or home
         router.push("/");
       } else {
