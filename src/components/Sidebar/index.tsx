@@ -9,7 +9,7 @@ import axiosInstance, { BASE_URL } from "../../../utils/axiosInstance";
 const Sidebar: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const isActive = (path: string) => pathname === path;
 
   const api = `${BASE_URL}/auth/logout`;
