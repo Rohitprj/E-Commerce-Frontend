@@ -36,7 +36,9 @@ const Sidebar: React.FC = () => {
   }
   return (
     <div className="h-screen w-64 bg-black shadow-md fixed top-0 left-0 p-6">
-      <h2 className="text-xl font-semibold text-white mb-6">Shopster</h2>
+      <Link href={"/"}>
+        <h2 className="text-xl font-semibold text-white mb-6">Shopster</h2>
+      </Link>
       <nav className="space-y-4">
         <Link
           href="/dashboard"
