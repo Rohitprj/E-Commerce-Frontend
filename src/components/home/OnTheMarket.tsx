@@ -1,19 +1,3 @@
-// import React from "react";
-
-// export default function OnTheMarket() {
-//   return (
-// <div className="px-22 bg-gray-100">
-//   <div className="text-2xl mb-8">On the market</div>
-//   <div className="border-1 w-1/4 h-80 rounded-md flex flex-col">
-//     <p>Filter</p>
-//     <button>Tags</button>
-//     <button>Price</button>
-//     <button>Rating</button>
-//   </div>
-// </div>
-//   );
-// }
-
 "use client";
 
 import { useState } from "react";
@@ -47,10 +31,10 @@ const FilterItem = ({ title }: { title: string }) => {
 export default function FiltersSidebar() {
   return (
     <div className="px-22 bg-gray-100">
-      <div className="text-2xl mb-8">On the market</div>
+      <div className="text-2xl mb-6">On the market</div>
       <div className="w-74 border rounded-md overflow-hidden bg-white">
         {/* Top Title */}
-        <div className="px-4 py-3 text-lg border-b">Filters</div>
+        <div className="px-4 py-4 text-lg border-b">Filters</div>
 
         {/* Filter Sections */}
         <FilterItem title="Tags" />
