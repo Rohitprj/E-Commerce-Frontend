@@ -1,4 +1,4 @@
-import Sidebar from "@/components/dashboardComp/Sidebar";
+import Sidebar from "@/components/dashboard/Sidebar";
 import React from "react";
 
 export default function profile() {
