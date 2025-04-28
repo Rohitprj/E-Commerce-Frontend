@@ -1,4 +1,4 @@
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/dashboardComp/Sidebar";
 import React from "react";
 
 export default function page() {

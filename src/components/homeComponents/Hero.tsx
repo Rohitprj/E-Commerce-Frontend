@@ -1,0 +1,77 @@
+"use client";
+
+import { useRef } from "react";
+import Image from "next/image";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+export default function FeaturedProducts() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const images: string[] = [
+    "/assets/images/download.jpeg",
+    "/assets/images/clothes.jpeg",
+    "/assets/images/download.jpeg",
+    "/assets/images/clothes.jpeg",
+    "/assets/images/download.jpeg",
+  ];
+
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollAmount = container.offsetWidth / 2;
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="py-16 px-10 bg-gray-100">
+      <h1 className="text-2xl mb-6 font-bold ml-12">Featured Products</h1>
+
+      {/* Slider */}
+      <div className="relative flex items-center mx-auto">
+        {/* Left Arrow */}
+        <button
+          onClick={() => scroll("left")}
+          className="z-10 p-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-70 mr-4"
+        >
+          <FaArrowLeft />
+        </button>
+
+        {/* Slider Container */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 py-2 w-full"
+        >
+          {images.map((src, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-1/2 snap-start relative h-64"
+            >
+              <Image
+                src={src}
+                alt={`Slide ${index}`}
+                fill
+                className="object-cover rounded-md border border-black cursor-pointer shadow-none 
+                  hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+                  active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+                priority={index === 0}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => scroll("right")}
+          className="z-10 p-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-70"
+        >
+          <FaArrowRight />
+        </button>
+      </div>
+    </div>
+  );
+}
