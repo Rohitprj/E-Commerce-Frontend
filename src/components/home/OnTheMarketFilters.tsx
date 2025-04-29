@@ -63,6 +63,15 @@ export default function FiltersSidebar() {
         </div>
         <OnTheMarketItems />
       </div>
+      <button
+        className="mt-6 cursor-pointer items-center rounded-sm 
+            border border-black bg-white px-3 py-1 text-lg transition-all shadow-none 
+            hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+            hover:-translate-y-2 hover:-translate-x-2 
+            active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+      >
+        Load more
+      </button>
     </div>
   );
 }
