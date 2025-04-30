@@ -1,5 +1,6 @@
 import React from "react";
 import { products } from "../../../utils/DummyProducts";
+import { FaStar } from "react-icons/fa";
 
 export default function OnTheMarketItems() {
   return (
@@ -20,11 +21,24 @@ export default function OnTheMarketItems() {
                   className="h-full w-full"
                 />
               </div>
-              <div className="w-full h-45 text-2xl border-b flex p-6">
-                {items.name}
+              <div className="w-full h-45 border-b flex flex-col justify-between px-6 py-4">
+                <div className="text-2xl">{items.name}</div>
+
+                <div className="flex items-center gap-1 text-sm font-bold">
+                  <FaStar size={16} />
+                  {items.rating}
+                </div>
               </div>
-              <div className="p-2 text-center font-semibold">
-                ${items.price}
+              <div className="w-fit p-3">
+                <div
+                  className="bg-pink-400 text-black px-4 py-1 font-medium"
+                  style={{
+                    clipPath:
+                      "polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 0 0)",
+                  }}
+                >
+                  $597
+                </div>
               </div>
             </div>
           </div>

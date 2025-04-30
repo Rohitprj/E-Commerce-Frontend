@@ -1,5 +1,7 @@
 import React from "react";
 import { wishlist } from "../../../utils/DummyWishlist";
+import { LuBookmarkPlus } from "react-icons/lu";
+import { FaRegHeart } from "react-icons/fa";
 
 export default function Wishlist() {
   return (
@@ -27,7 +29,13 @@ export default function Wishlist() {
               {/* Content Section */}
               <div className="w-2/3 p-4 flex flex-col justify-between">
                 <div className="font-medium text-lg truncate">{items.name}</div>
-                <div className="text-gray-600">${items.price}</div>
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <FaRegHeart size={19} />
+                    <p className="font-medium">{items.likes}</p>
+                  </div>
+                  <LuBookmarkPlus size={24} />
+                </div>
               </div>
             </div>
           </div>
