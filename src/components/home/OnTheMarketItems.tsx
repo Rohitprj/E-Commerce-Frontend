@@ -37,7 +37,7 @@ export default function OnTheMarketItems() {
                       "polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 0 0)",
                   }}
                 >
-                  $597
+                  ${items.price}
                 </div>
               </div>
             </div>
