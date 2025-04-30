@@ -8,7 +8,8 @@ interface Product {
 export const products: Product[] = [
   {
     name: "Product 1",
-    image: "/images/product1.png",
+    image: "/assets/images/boy.jpg",
+    // image: "/images/product1.png",
     price: 20,
     rating: 4.8,
   },

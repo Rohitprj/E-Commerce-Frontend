@@ -17,10 +17,10 @@ export default function OnTheMarketItems() {
                 <img
                   src={items.image}
                   alt={items.name}
-                  className="h-full object-contain"
+                  className="h-full w-full"
                 />
               </div>
-              <div className="w-full h-45 border-b flex items-center justify-center text-center px-2">
+              <div className="w-full h-45 text-2xl border-b flex p-6">
                 {items.name}
               </div>
               <div className="p-2 text-center font-semibold">
