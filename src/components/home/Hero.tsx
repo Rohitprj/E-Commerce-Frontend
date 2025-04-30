@@ -41,14 +41,19 @@ export default function FeaturedProducts() {
         </button>
 
         {/* Slider Container */}
+
         <div
           ref={scrollRef}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
           className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 py-2 w-full"
         >
           {images.map((src, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-1/2 snap-start relative h-64"
+              className="flex-shrink-0 w-1/2 snap-start relative h-84"
             >
               <Image
                 src={src}
