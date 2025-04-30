@@ -31,7 +31,7 @@ const FilterItem = ({ title }: { title: string }) => {
 
 export default function FiltersSidebar() {
   return (
-    <div className="px-22 bg-gray-100">
+    <div className="px-22 bg-gray-100 relative">
       <div className="flex justify-between">
         <div className="text-2xl mb-6">On the market</div>
         <nav className="hidden md:flex items-center gap-6 mb-6">
@@ -54,7 +54,7 @@ export default function FiltersSidebar() {
         </nav>
       </div>
       <div className="flex items-start justify-between">
-        <div className="w-70 border rounded-sm overflow-hidden bg-white">
+        <div className="w-70 border top-30 rounded-sm sticky bg-white">
           <div className="px-4 py-4 text-lg border-b">Filters</div>
           <FilterItem title="Tags" />
           <FilterItem title="Contains" />
@@ -63,15 +63,6 @@ export default function FiltersSidebar() {
         </div>
         <OnTheMarketItems />
       </div>
-      <button
-        className="mt-6 cursor-pointer items-center rounded-sm 
-            border border-black bg-white px-3 py-1 text-lg transition-all shadow-none 
-            hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
-            hover:-translate-y-2 hover:-translate-x-2 
-            active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
-      >
-        Load more
-      </button>
     </div>
   );
 }
