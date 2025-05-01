@@ -3,7 +3,7 @@
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
-import { BASE_URL } from "../../../utils/axiosInstance";
+import { BASE_URL } from "../../../../utils/axiosInstance";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 

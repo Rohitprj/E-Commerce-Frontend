@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/context/AuthContext";
 import React, { useState } from "react";
-import { BASE_URL } from "../../../utils/axiosInstance";
+import { BASE_URL } from "../../../../utils/axiosInstance";
 
 export default function SignupPage() {
   const router = useRouter();
