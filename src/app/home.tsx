@@ -1,5 +1,5 @@
 import SearchArea from "@/components/home/SearchArea";
-import Footer from "@/components/home/Footer";
+import Footer from "@/components/footer/Footer";
 import Hero from "@/components/home/Hero";
 import OnTheMarketFilters from "@/components/home/OnTheMarketFilters";
 import Wishlist from "@/components/home/Wishlist";
