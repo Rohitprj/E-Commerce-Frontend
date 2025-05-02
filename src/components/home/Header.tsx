@@ -144,12 +144,20 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useAuthContext } from "@/context/AuthContext";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
   const { user } = useAuthContext();
-  const navLinks = ["About", "Feature", "Pricing", "Taxes"];
+  const pathname = usePathname();
+
+  const navLinks = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Feature", path: "/feature" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "Taxes", path: "/taxes" },
+  ];
 
   const baseBtn =
     "text-lg px-4 py-2 rounded-full transition duration-300 cursor-pointer";
@@ -169,26 +177,14 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/">
-            <button
-              onClick={() => setActiveIndex(-1)}
-              className={`${baseBtn} ${
-                activeIndex === -1 ? activeBtn : inactiveBtn
-              }`}
-            >
-              Home
-            </button>
-          </Link>
-
-          {navLinks.map((item, index) => (
-            <Link key={item} href={`/${item.toLowerCase()}`}>
+          {navLinks.map((item) => (
+            <Link key={item.label} href={item.path}>
               <button
-                onClick={() => setActiveIndex(index)}
                 className={`${baseBtn} ${
-                  activeIndex === index ? activeBtn : inactiveBtn
+                  pathname === item.path ? activeBtn : inactiveBtn
                 }`}
               >
-                {item}
+                {item.label}
               </button>
             </Link>
           ))}
@@ -226,21 +222,19 @@ export default function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-6 px-4 flex flex-col items-center gap-4">
-          <Link href="/" onClick={() => setIsOpen(false)}>
-            <button className="text-white text-lg bg-black px-5 py-2 rounded-full w-full text-center">
-              Home
-            </button>
-          </Link>
-
           {navLinks.map((item) => (
             <Link
-              key={item}
-              href={`/${item.toLowerCase()}`}
+              key={item.label}
+              href={item.path}
               onClick={() => setIsOpen(false)}
             >
-              <p className="text-lg w-full text-center py-2 cursor-pointer">
-                {item}
-              </p>
+              <button
+                className={`w-full text-center ${baseBtn} ${
+                  pathname === item.path ? activeBtn : inactiveBtn
+                }`}
+              >
+                {item.label}
+              </button>
             </Link>
           ))}
 
