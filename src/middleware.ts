@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
@@ -7,6 +7,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const publicPath = path === "/login" || path === "/signup";
   const dashboardPath = path === "/dashboard";
+  const startSelling = path === "/startSelling";
 
   const cookies = request.cookies.get("refreshToken")?.value;
   //  const cookies =
@@ -23,11 +24,15 @@ export async function middleware(request: NextRequest) {
     // If not authenticated and trying to access protected route (dashboard), redirect to home
     return NextResponse.redirect(new URL("/", request.url));
   }
+  if (startSelling && !cookies) {
+    // If not authenticated and trying to access protected route (dashboard), redirect to home
+    return NextResponse.redirect(new URL("/signup", request.url));
+  }
 
   return NextResponse.next();
 }
 
 // config
 export const config = {
-  matcher: ["/", "/login", "/signup", "/dashboard"],
+  matcher: ["/", "/login", "/signup", "/dashboard", "/startSelling"],
 };
