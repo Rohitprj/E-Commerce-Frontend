@@ -18,8 +18,9 @@ export default function LoginPage() {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
 
-  const { user, setUser } = useAuthContext();
+  const { user, setUser, accessToken } = useAuthContext();
   console.log("UserLogInData", user);
+  console.log("UserAccessToken", accessToken);
 
   async function loginApi(): Promise<void> {
     setLoading(true);
