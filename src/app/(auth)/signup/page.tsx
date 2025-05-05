@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/context/AuthContext";
 import React, { useState } from "react";
 import { BASE_URL } from "../../../../utils/axiosInstance";
+import { validateEmail } from "../../../../utils/validateEmail";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -21,13 +22,6 @@ export default function SignupPage() {
   const { user, setUser } = useAuthContext();
   console.log("UserSignUpData", user);
 
-  function validateEmail(email: string): boolean {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-  // if (router && !user.isLoading && user.isLoggedIn) {
-  //   router.replace("/");
-  // }
   async function signupApi(): Promise<void> {
     setLoading(true);
     setError("");
