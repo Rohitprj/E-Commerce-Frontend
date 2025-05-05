@@ -42,7 +42,7 @@ export default function FeaturedProducts() {
 
         {/* Slider Container */}
 
-        <div
+        {/* <div
           ref={scrollRef}
           style={{
             scrollbarWidth: "none",
@@ -67,6 +67,48 @@ export default function FeaturedProducts() {
               />
             </div>
           ))}
+        </div> */}
+        <div
+          ref={scrollRef}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+          className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-4 px-4 py-2 w-full"
+        >
+          {images.map((src, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-1/2 snap-start relative h-84 
+                 rounded-md border border-black cursor-pointer shadow-none
+                 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                 active:shadow-none overflow-hidden flex"
+            >
+              {/* Image aligned to the left of the line */}
+              <div className="h-full w-90 relative">
+                <Image
+                  src={src}
+                  alt={`Slide ${index}`}
+                  fill
+                  className="object-cover rounded-l-md"
+                  priority={index === 0}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              {/* Vertical center line */}
+              <div className="absolute top-0 bottom-0 left-86 -translate-x-1/2 border-l-1 border-black z-10" />
+
+              <div className="p-4 flex flex-col justify-center gap-2 bg-white z-0">
+                <h2 className="text-xl font-semibold">Title</h2>
+                <p className="text-sm text-gray-700">
+                  Some description or content here.
+                </p>
+                <button className="mt-2 px-4 py-1 bg-black text-white rounded">
+                  Action
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Right Arrow */}
@@ -80,5 +122,3 @@ export default function FeaturedProducts() {
     </div>
   );
 }
-
-
