@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthContext from "../context/AuthContext";
-// import ServerWrapper from "./serverWrapper";
-// import { BASE_URL } from "../../utils/axiosInstance";
-// import axios from "axios";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,21 +23,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // fetch(`${BASE_URL}/auth/is_loggedin`, {
-  //   method: "GET",
-  //   credentials: "include",
-  // })
-  //   .then((e) => e.json())
-  //   .then((e) => console.log({ e }));
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <ServerWrapper> */}
         <AuthContext>{children}</AuthContext>
-        {/* </ServerWrapper> */}
       </body>
     </html>
   );

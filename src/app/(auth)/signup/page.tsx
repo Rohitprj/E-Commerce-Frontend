@@ -60,8 +60,6 @@ export default function SignupPage() {
       }
       setEmail("");
       setPassword("");
-
-      // Redirect after success
       router.push("/");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {

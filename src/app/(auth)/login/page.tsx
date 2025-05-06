@@ -64,7 +64,6 @@ export default function LoginPage() {
     }
   }
 
-  // return user.isLoading ? null : (
   return (
     <div className="flex items-center justify-center w-full h-screen">
       <div className="flex flex-col gap-4 p-8 rounded-md w-full max-w-md bg-gray-100">
