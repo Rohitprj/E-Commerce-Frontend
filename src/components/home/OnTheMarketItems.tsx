@@ -1,15 +1,15 @@
 import React from "react";
-// import { products } from "../../../utils/DummyProducts";
 import { FaStar } from "react-icons/fa";
 import { useAuthContext } from "@/context/AuthContext";
+import Image from "next/image";
 
 export default function OnTheMarketItems() {
-  const { products } = useAuthContext();
+  const { products = [] } = useAuthContext();
   console.log(products);
   return (
     <div>
       <section className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((items: any) => (
+        {products.map((items) => (
           <div
             key={items.id}
             className="object-cover rounded-md cursor-pointer shadow-none 
@@ -18,7 +18,7 @@ export default function OnTheMarketItems() {
           >
             <div className="w-64 h-120 border rounded-sm bg-white shadow-sm hover:shadow-md transition overflow-hidden">
               <div className="w-full h-60 border-b flex items-center justify-center bg-gray-100">
-                <img
+                <Image
                   src={items.image || "/fallback-image.jpg"}
                   alt={items.name || "Product missing"}
                   className="h-full w-full"

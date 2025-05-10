@@ -2,6 +2,7 @@ import React from "react";
 import { wishlist } from "../../../utils/DummyWishlist";
 import { LuBookmarkPlus } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Wishlist() {
   return (
@@ -19,7 +20,7 @@ export default function Wishlist() {
             >
               {/* Image Section */}
               <div className="w-1/3 h-full border-r overflow-hidden">
-                <img
+                <Image
                   src={items.image}
                   alt={items.name}
                   className="w-full h-full object-cover"
