@@ -1,5 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axiosInstance from "../axiosInstance";
 
-export default function Products() {
-  return <div></div>;
-}
+export default function Products() {}

@@ -19,6 +19,7 @@ interface AuthContextProp {
       isLoading: boolean;
     }>
   >;
+  products?: any; // Add the 'products' property with an optional type
 }
 
 export const AuthContext = createContext<AuthContextProp>({
@@ -30,6 +31,7 @@ export const AuthContext = createContext<AuthContextProp>({
     isLoading: true,
   },
   setUser: () => {},
+  products: [],
 });
 
 export default function AuthContextProvider({
@@ -43,6 +45,7 @@ export default function AuthContextProvider({
     isLoggedIn: false,
     isLoading: true,
   });
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function getToken() {
@@ -56,6 +59,7 @@ export default function AuthContextProvider({
         console.log("Failed to get Token", error);
       }
     }
+    getToken();
 
     (async function () {
       try {
@@ -77,12 +81,17 @@ export default function AuthContextProvider({
       }
     })();
 
-    getToken();
+    async function productsData() {
+      const { data } = await axiosInstance.get("/product/products");
+      console.log("Products data", data);
+      setProducts(data);
+    }
+    productsData();
   }, []);
 
   return (
     <AuthContext.Provider
-      value={{ accessToken, setAccessToken, user, setUser }}
+      value={{ accessToken, setAccessToken, user, setUser, products }}
     >
       {children}
     </AuthContext.Provider>
