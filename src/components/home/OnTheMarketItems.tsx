@@ -2,6 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useAuthContext } from "@/context/AuthContext";
 import Image from "next/image";
+import { MdCurrencyRupee } from "react-icons/md";
 
 export default function OnTheMarketItems() {
   const { products = [] } = useAuthContext();
@@ -9,9 +10,9 @@ export default function OnTheMarketItems() {
   return (
     <div>
       <section className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {products.map((items) => (
+        {products.map((items, index) => (
           <div
-            key={items.id}
+            key={index}
             className="object-cover rounded-md cursor-pointer shadow-none 
                   hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
                   active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
@@ -21,7 +22,11 @@ export default function OnTheMarketItems() {
                 <Image
                   src={items.image || "/fallback-image.jpg"}
                   alt={items.name || "Product missing"}
-                  className="h-full w-full"
+                  unoptimized
+                  // className="h-full w-full"
+                  width={200} // Provide a default width
+                  height={200} // Provide a default height
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="w-full h-45 border-b flex flex-col justify-between px-6 py-4">
@@ -34,13 +39,14 @@ export default function OnTheMarketItems() {
               </div>
               <div className="w-fit p-3">
                 <div
-                  className="bg-pink-400 text-black px-4 py-1 font-medium"
+                  className="flex items-center bg-pink-400 text-black px-4 py-1 font-medium"
                   style={{
                     clipPath:
                       "polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 0 0)",
                   }}
                 >
-                  ${items.price}
+                  <MdCurrencyRupee />
+                  {items.price}
                 </div>
               </div>
             </div>

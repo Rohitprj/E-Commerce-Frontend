@@ -23,7 +23,10 @@ export default function Wishlist() {
                 <Image
                   src={items.image}
                   alt={items.name}
-                  className="w-full h-full object-cover"
+                  width={200} // Provide a default width
+                  height={200} // Provide a default height
+                  className="h-full w-full object-cover"
+                  // className="w-full h-full object-cover"
                 />
               </div>
 

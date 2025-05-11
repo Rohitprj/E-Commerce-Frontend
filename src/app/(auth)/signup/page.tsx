@@ -7,6 +7,7 @@ import { useAuthContext } from "@/context/AuthContext";
 import React, { useState } from "react";
 import { BASE_URL } from "../../../../utils/axiosInstance";
 import { validateEmail } from "../../../../utils/validateEmail";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -72,14 +73,19 @@ export default function SignupPage() {
       setLoading(false);
     }
   }
-
+  const notify = () => toast("Here is your toast.");
   return (
     <div className="flex items-center justify-center w-full h-screen bg-gray-200">
       <div className="flex flex-col gap-4 p-8 rounded-md w-full max-w-md bg-white shadow-md">
         <h2 className="text-2xl font-bold text-center mb-2">Sign Up</h2>
 
         {error && <p className="text-red-600">{error}</p>}
-        {success && <p className="text-green-600">{success}</p>}
+        {success && (
+          <p className="text-green-600">
+            {success}
+            <Toaster />
+          </p>
+        )}
 
         <label className="font-medium">Email</label>
         <div className="flex border border-black rounded-sm bg-white px-2 py-2">
@@ -104,7 +110,10 @@ export default function SignupPage() {
         </div>
 
         <button
-          onClick={signupApi}
+          onClick={() => {
+            signupApi();
+            notify();
+          }}
           disabled={loading}
           className={`flex items-center justify-center gap-2 px-4 py-2 text-white 
             rounded-sm font-semibold transition ${
