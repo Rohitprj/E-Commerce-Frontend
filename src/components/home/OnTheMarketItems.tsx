@@ -23,7 +23,6 @@ export default function OnTheMarketItems() {
                   src={items.image || "/fallback-image.jpg"}
                   alt={items.name || "Product missing"}
                   unoptimized
-                  // className="h-full w-full"
                   width={200} // Provide a default width
                   height={200} // Provide a default height
                   className="h-full w-full object-cover"

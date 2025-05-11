@@ -26,7 +26,6 @@ export default function Wishlist() {
                   width={200} // Provide a default width
                   height={200} // Provide a default height
                   className="h-full w-full object-cover"
-                  // className="w-full h-full object-cover"
                 />
               </div>
 
