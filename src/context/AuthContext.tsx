@@ -11,6 +11,7 @@ interface Product {
   price: number;
   rating: number;
   brand: string;
+  _id: string;
 }
 
 interface AuthContextProp {
