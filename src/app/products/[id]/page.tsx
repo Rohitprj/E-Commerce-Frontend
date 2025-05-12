@@ -45,8 +45,7 @@ export default async function page({ params }: { params: { id: string } }) {
           Add to cart
         </button>
       </div>
-      <h1>Products</h1>
-      <h1>Products</h1>
+      <div className="border-1 mx-24 my-12">hello</div>
     </div>
   );
 }
