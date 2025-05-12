@@ -10,6 +10,7 @@ interface Product {
   image: string;
   price: number;
   rating: number;
+  brand: string;
 }
 
 interface AuthContextProp {

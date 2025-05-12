@@ -132,6 +132,9 @@ export default function OnTheMarketItems() {
                   </div>
                   <div className="w-full h-45 border-b flex flex-col justify-between px-6 py-4">
                     <div className="text-2xl">{items.name}</div>
+
+                    <div className="text-base underline">{items.brand}</div>
+
                     <div className="flex items-center gap-1 text-sm font-bold">
                       <FaStar size={16} />
                       {items.rating}
