@@ -5,12 +5,12 @@ import SearchArea from "@/components/home/SearchArea";
 import React, { useEffect, useState } from "react";
 import { MdCurrencyRupee } from "react-icons/md";
 import Image from "next/image";
-import { useAuthContext } from "@/context/AuthContext";
+import { Product, useAuthContext } from "@/context/AuthContext";
 import { useParams } from "next/navigation";
 
 // export default function ProductPage({ params }: { params: { id: string } }) {  // This is only valid in Server Components. Since using "use client" and client-side hooks like useState, useEffect, and useAuthContext(), params will not be automatically passed as a prop in this context.
 export default function ProductPage() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<Product | null>(null);
   const { getProductById } = useAuthContext();
   const params = useParams();
   useEffect(() => {

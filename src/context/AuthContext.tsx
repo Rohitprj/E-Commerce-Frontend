@@ -4,7 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import axiosInstance, { BASE_URL } from "../../utils/axiosInstance";
 import axios from "axios";
 
-interface Product {
+export interface Product {
   id: string;
   name: string;
   image: string;
