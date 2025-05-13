@@ -6,36 +6,34 @@ import React, { useEffect, useState } from "react";
 import { MdCurrencyRupee } from "react-icons/md";
 import Image from "next/image";
 import { useAuthContext } from "@/context/AuthContext";
+import { useParams } from "next/navigation";
 
-// async function getProductById(id: string) {
-// try {
-//   const res = await axiosInstance.get(`${BASE_URL}/product/productId/${id}`);
-
-//   return res.data;
-// } catch (error) {
-//   console.error("Product fetch failed:", error);
-//   return null;
-// }
-// }
-export default async function page({ params }: { params: { id: string } }) {
-  const [accessData, setAccessData] = useState<any>(null);
+// export default function ProductPage({ params }: { params: { id: string } }) {  // This is only valid in Server Components. Since using "use client" and client-side hooks like useState, useEffect, and useAuthContext(), params will not be automatically passed as a prop in this context.
+export default function ProductPage() {
+  const [data, setData] = useState<any>(null);
   const { getProductById } = useAuthContext();
-
+  const params = useParams();
   useEffect(() => {
     async function singleProduct() {
-      const product = await getProductById(params.id);
-      setAccessData(product);
-      console.log("Single product data", product);
+      if (params?.id) {
+        const product = await getProductById(params.id as string);
+        setData(product);
+        console.log("Single prod", product);
+      }
     }
     singleProduct();
   }, [params.id, getProductById]);
-  console.log("Single prod", accessData);
+
+  if (!data) {
+    return <div>Loading...</div>; // Show loading message while fetching data
+  }
+  console.log("Page data", data);
 
   return (
     <div>
       <Header />
       <SearchArea />
-      <div className="flex border-b-1 py-6 px-26">
+      <div className="flex border-b-1 py-6 px-26 justify-between">
         <div
           className="flex items-center bg-pink-400 text-black px-4 py-1 font-medium w-fit"
           style={{
@@ -43,10 +41,10 @@ export default async function page({ params }: { params: { id: string } }) {
           }}
         >
           <MdCurrencyRupee />
-          20000
+          {data.price}
         </div>
-        <div>product name</div>
-        <div>Ratings</div>
+        <div>{data.name}</div>
+        <div>{data.rating}</div>
         <button
           className="cursor-pointer items-center rounded-sm
             border border-black bg-white px-4 py-2 text-base font-medium transition-all shadow-none
@@ -58,37 +56,20 @@ export default async function page({ params }: { params: { id: string } }) {
         </button>
       </div>
 
-      <div className="border-1 mx-24 my-12">
-        {/* <Image src={item.image} alt={item.name} /> */}
+      <div className="border-1 mx-24 my-14 rounded-md">
+        <div className="relative w-full h-96">
+          <Image
+            src={data.image}
+            alt={data.name}
+            fill
+            className="border-b-1 bg-amber-500"
+          />
+        </div>
+        <div>{data.name}</div>
+        <div>{data.price}</div>
+        <div>{data.brand}</div>
+        <div>{data.rating}</div>
       </div>
     </div>
   );
 }
-
-// import { use } from "react"; // optional if you're using async/await
-// import { notFound } from "next/navigation";
-
-// async function getProduct(id: string) {
-//   // Fetch from your API or DB
-//   const res = await fetch(`https://yourapi.com/products/${id}`);
-//   if (!res.ok) return null;
-//   return res.json();
-// }
-
-// export default async function ProductPage({
-//   params,
-// }: {
-//   params: { id: string };
-// }) {
-//   const product = await getProduct(params.id);
-
-//   if (!product) return notFound();
-
-//   return (
-//     <div>
-//       <h1>{product.name}</h1>
-//       <p>{product.description}</p>
-//       <p>Price: {product.price}</p>
-//     </div>
-//   );
-// }
