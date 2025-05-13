@@ -1,23 +1,35 @@
+"use client";
+
 import Header from "@/components/home/Header";
 import SearchArea from "@/components/home/SearchArea";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdCurrencyRupee } from "react-icons/md";
-import axiosInstance, { BASE_URL } from "../../../../utils/axiosInstance";
-import { notFound } from "next/navigation";
+import Image from "next/image";
+import { useAuthContext } from "@/context/AuthContext";
 
-async function getProductById(id: string) {
-  try {
-    const res = await axiosInstance.get(`${BASE_URL}/product/productId/${id}`);
-    console.log("Single product data", res.data);
-    return res.data;
-  } catch (error) {
-    console.error("Product fetch failed:", error);
-    return null;
-  }
-}
+// async function getProductById(id: string) {
+// try {
+//   const res = await axiosInstance.get(`${BASE_URL}/product/productId/${id}`);
+
+//   return res.data;
+// } catch (error) {
+//   console.error("Product fetch failed:", error);
+//   return null;
+// }
+// }
 export default async function page({ params }: { params: { id: string } }) {
-  const product = await getProductById(params.id);
-  if (!product) notFound();
+  const [accessData, setAccessData] = useState<any>(null);
+  const { getProductById } = useAuthContext();
+
+  useEffect(() => {
+    async function singleProduct() {
+      const product = await getProductById(params.id);
+      setAccessData(product);
+      console.log("Single product data", product);
+    }
+    singleProduct();
+  }, [params.id, getProductById]);
+  console.log("Single prod", accessData);
 
   return (
     <div>
@@ -45,7 +57,10 @@ export default async function page({ params }: { params: { id: string } }) {
           Add to cart
         </button>
       </div>
-      <div className="border-1 mx-24 my-12">hello</div>
+
+      <div className="border-1 mx-24 my-12">
+        {/* <Image src={item.image} alt={item.name} /> */}
+      </div>
     </div>
   );
 }

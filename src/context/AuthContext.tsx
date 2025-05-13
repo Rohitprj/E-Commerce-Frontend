@@ -30,6 +30,7 @@ interface AuthContextProp {
     }>
   >;
   products?: Product[];
+  getProductById: (id: string) => Promise<Product | null>;
 }
 
 export const AuthContext = createContext<AuthContextProp>({
@@ -42,6 +43,7 @@ export const AuthContext = createContext<AuthContextProp>({
   },
   setUser: () => {},
   products: [],
+  getProductById: async () => null,
 });
 
 export default function AuthContextProvider({
@@ -99,9 +101,28 @@ export default function AuthContextProvider({
     productsData();
   }, []);
 
+  const getProductById = async (id: string): Promise<Product | null> => {
+    try {
+      const res = await axiosInstance.get(
+        `${BASE_URL}/product/productId/${id}`
+      );
+      return res.data;
+    } catch (error) {
+      console.error("Product fetch failed:", error);
+      return null;
+    }
+  };
+
   return (
     <AuthContext.Provider
-      value={{ accessToken, setAccessToken, user, setUser, products }}
+      value={{
+        accessToken,
+        setAccessToken,
+        user,
+        setUser,
+        products,
+        getProductById,
+      }}
     >
       {children}
     </AuthContext.Provider>
