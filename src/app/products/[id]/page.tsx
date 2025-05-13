@@ -58,12 +58,7 @@ export default function ProductPage() {
 
       <div className="border-1 mx-24 my-14 rounded-md">
         <div className="relative w-full h-96">
-          <Image
-            src={data.image}
-            alt={data.name}
-            fill
-            className="border-b-1 bg-amber-500"
-          />
+          <Image src={data.image} alt={data.name} fill className="border-b-1" />
         </div>
         <div>{data.name}</div>
         <div>{data.price}</div>
