@@ -34,7 +34,7 @@ export default function ProductPage() {
     <div>
       <Header />
       <SearchArea />
-      <div className="flex border-b-1 py-6 px-26 justify-between">
+      <div className="flex border-b-1 py-6 px-26 justify-between bg-white sticky top-0 z-50">
         <div className="flex items-center gap-5">
           <div
             className="flex items-center bg-pink-400 text-black px-4 py-1 font-medium w-fit"
@@ -92,6 +92,7 @@ export default function ProductPage() {
                 <span>{data.rating} rating</span>
               </div>
             </div>
+
             <div className="p-5">
               <p className="text-base font-bold mb-5">DESCRIPTION :</p>
               <p className="font-bold text-xl mb-3">{data.description}</p>
