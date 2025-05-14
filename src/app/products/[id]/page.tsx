@@ -93,8 +93,40 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="p-5">
-              <p className="text-2xl font-medium">Description</p>
-              <p>{data.description}</p>
+              <p className="text-base font-bold mb-5">DESCRIPTION :</p>
+              <p className="font-bold text-xl mb-3">{data.description}</p>
+              <ul
+                style={{
+                  listStyleType: "disc",
+                  paddingLeft: "50px",
+                }}
+              >
+                {data.descriptions.map((descriptions, index) => (
+                  <li key={index} className="font-medium">
+                    {descriptions}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-b-1 my-8" />
+              <p className="text-base font-bold mt-5 mb-3 ">FEATURES :</p>
+              <ul style={{ listStyleType: "disc", paddingLeft: "50px" }}>
+                {data.features.map((feature, index) => (
+                  <li key={index} className="font-medium">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-b-1 my-8" />
+              <p className="text-base font-bold mt-5 mb-3">
+                TERMS AND SERVICES :
+              </p>
+              <ul style={{ listStyleType: "disc", paddingLeft: "50px" }}>
+                {data.terms_and_services.map((terms, index) => (
+                  <li key={index} className="font-medium">
+                    {terms}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
