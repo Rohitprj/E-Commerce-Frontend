@@ -1,0 +1,364 @@
+[{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607767"
+  },
+  "product_id": "M101",
+  "name": "Apple iPhone 14 Pro",
+  "category": "Mobile",
+  "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fringke.co.in%2Fproducts%2Fbuy-apple-iphone-14-pro-max-back-cover-case-slim-matte-clear&psig=AOvVaw0ZfudpL1kqfVxViCXQk9bC&ust=1746982651618000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLD2iZ6xmY0DFQAAAAAdAAAAABAQ",
+  "price": 119999,
+  "rating": 4.8,
+  "description": "Apple iPhone 14 Pro with A16 Bionic chip and 48MP camera.",
+  "brand": "Apple",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607768"
+  },
+  "product_id": "M102",
+  "name": "Samsung Galaxy S23 Ultra",
+  "category": "Mobile",
+  "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-ultra-1.jpg",
+  "price": 124999,
+  "rating": 4.9,
+  "description": "Samsung Galaxy S23 Ultra with Snapdragon 8 Gen 2 and 200MP camera.",
+  "brand": "Samsung",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607769"
+  },
+  "product_id": "F202",
+  "name": "Adidas Ultraboost 22",
+  "category": "Fashion",
+  "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/Ultraboost_22.jpg",
+  "price": 12999,
+  "rating": 4.7,
+  "description": "Adidas Ultraboost 22 with responsive cushioning and Primeknit upper.",
+  "brand": "Adidas",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776a"
+  },
+  "product_id": "F201",
+  "name": "Nike Air Force 1",
+  "category": "Fashion",
+  "image": "https://static.nike.com/a/images/t_PDP_1280_v1/Nike-Air-Force-1.jpg",
+  "price": 7999,
+  "rating": 4.6,
+  "description": "Classic Nike Air Force 1 sneakers with leather upper and rubber sole.",
+  "brand": "Nike",
+  "stock": 12
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776b"
+  },
+  "product_id": "E302",
+  "name": "Sony WH-1000XM5 Headphones",
+  "category": "Electronics",
+  "image": "https://m.media-amazon.com/images/I/Sony-WH-1000XM5.jpg",
+  "price": 29999,
+  "rating": 4.8,
+  "description": "Sony WH-1000XM5 noise-canceling headphones with Hi-Res audio.",
+  "brand": "Sony",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776c"
+  },
+  "product_id": "E301",
+  "name": "Apple MacBook Pro 14",
+  "category": "Electronics",
+  "image": "https://store.storeimages.cdn-apple.com/MacBook-Pro-14.jpg",
+  "price": 199999,
+  "rating": 4.9,
+  "description": "Apple MacBook Pro 14-inch with M2 Pro chip and 16GB RAM.",
+  "brand": "Apple",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776d"
+  },
+  "product_id": "T402",
+  "name": "Hot Wheels Ultimate Garage",
+  "category": "Toys",
+  "image": "https://m.media-amazon.com/images/I/Hot-Wheels-Ultimate-Garage.jpg",
+  "price": 5999,
+  "rating": 4.7,
+  "description": "Hot Wheels Ultimate Garage with multiple tracks and parking spaces.",
+  "brand": "Hot Wheels",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776e"
+  },
+  "product_id": "T401",
+  "name": "Lego Star Wars Millennium Falcon",
+  "category": "Toys",
+  "image": "https://www.lego.com/cdn/cs/set/assets/bltLEGO-Star-Wars-Millennium-Falcon.jpg",
+  "price": 15999,
+  "rating": 4.9,
+  "description": "Lego Star Wars Millennium Falcon building set for kids and collectors.",
+  "brand": "LEGO",
+  "stock": 12
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460776f"
+  },
+  "product_id": "F502",
+  "name": "Wakefit Memory Foam Mattress",
+  "category": "Furniture",
+  "image": "https://www.wakefit.co/media/catalog/product/Wakefit-Memory-Foam-Mattress.jpg",
+  "price": 14999,
+  "rating": 4.8,
+  "description": "Wakefit memory foam mattress with 7-zone support for better sleep.",
+  "brand": "Wakefit",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607770"
+  },
+  "product_id": "F501",
+  "name": "IKEA Markus Office Chair",
+  "category": "Furniture",
+  "image": "https://www.ikea.com/us/en/images/products/MARKUS-office-chair.jpg",
+  "price": 12999,
+  "rating": 4.6,
+  "description": "IKEA Markus ergonomic office chair with adjustable height and lumbar support.",
+  "brand": "IKEA",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607771"
+  },
+  "product_id": "M103",
+  "name": "Google Pixel 7 Pro",
+  "category": "Mobile",
+  "image": "https://store.google.com/product/images/phone_pixel_7_pro.jpg",
+  "price": 84999,
+  "rating": 4.7,
+  "description": "Google Pixel 7 Pro with Google Tensor G2 chip and advanced camera features.",
+  "brand": "Google",
+  "stock": 15
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607772"
+  },
+  "product_id": "M104",
+  "name": "OnePlus 11 5G",
+  "category": "Mobile",
+  "image": "https://image01.oneplus.net/ebp/202301/10/1-m00-1c-0b-rb8bw2p6xg2adn1vaakxqg1u6e0480_840_840.png",
+  "price": 61999,
+  "rating": 4.6,
+  "description": "OnePlus 11 5G with Snapdragon 8 Gen 2 and 100W fast charging.",
+  "brand": "OnePlus",
+  "stock": 20
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607773"
+  },
+  "product_id": "F203",
+  "name": "Puma RS-X3 Puzzle",
+  "category": "Fashion",
+  "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/371570/01/sv01/fnd/IND/fmt/png",
+  "price": 8999,
+  "rating": 4.5,
+  "description": "Puma RS-X3 Puzzle sneakers with bold design and comfortable fit.",
+  "brand": "Puma",
+  "stock": 18
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607774"
+  },
+  "product_id": "F204",
+  "name": "Reebok Nano X1",
+  "category": "Fashion",
+  "image": "https://assets.reebok.com/images/w_600,f_auto,q_auto/reebok-nano-x1.jpg",
+  "price": 7499,
+  "rating": 4.4,
+  "description": "Reebok Nano X1 training shoes with Flexweave knit upper.",
+  "brand": "Reebok",
+  "stock": 14
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607775"
+  },
+  "product_id": "E303",
+  "name": "Bose QuietComfort 45",
+  "category": "Electronics",
+  "image": "https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/products/headphones/quietcomfort_45/product_silo_images/qc45_black_EC_hero.psd/jcr:content/renditions/cq5dam.web.320.320.png",
+  "price": 32999,
+  "rating": 4.8,
+  "description": "Bose QuietComfort 45 headphones with world-class noise cancellation.",
+  "brand": "Bose",
+  "stock": 12
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607776"
+  },
+  "product_id": "E304",
+  "name": "Dell XPS 13 Laptop",
+  "category": "Electronics",
+  "image": "https://i.dell.com/sites/imagecontent/products/PublishingImages/xps-13-9310-laptop/spi/ng/xps-13-9310-laptop-spi-ng-500x500.jpg",
+  "price": 139999,
+  "rating": 4.7,
+  "description": "Dell XPS 13 with 11th Gen Intel Core processor and InfinityEdge display.",
+  "brand": "Dell",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607777"
+  },
+  "product_id": "T403",
+  "name": "Barbie Dreamhouse",
+  "category": "Toys",
+  "image": "https://m.media-amazon.com/images/I/81Zt42ioCgL._AC_SL1500_.jpg",
+  "price": 9999,
+  "rating": 4.6,
+  "description": "Barbie Dreamhouse with 3 stories, 8 rooms, and a working elevator.",
+  "brand": "Barbie",
+  "stock": 9
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607778"
+  },
+  "product_id": "T404",
+  "name": "NERF Elite 2.0 Shockwave RD-15",
+  "category": "Toys",
+  "image": "https://m.media-amazon.com/images/I/81x+3Z5bGkL._AC_SL1500_.jpg",
+  "price": 2999,
+  "rating": 4.5,
+  "description": "NERF Elite 2.0 Shockwave RD-15 blaster with pump-action priming.",
+  "brand": "NERF",
+  "stock": 16
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607779"
+  },
+  "product_id": "F503",
+  "name": "Godrej Interio Engineered Wood Bed",
+  "category": "Furniture",
+  "image": "https://www.godrejinterio.com/imagestore/Beds/engineered-wood-bed.jpg",
+  "price": 18999,
+  "rating": 4.3,
+  "description": "Godrej Interio engineered wood bed with storage drawers.",
+  "brand": "Godrej Interio",
+  "stock": 7
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777a"
+  },
+  "product_id": "F504",
+  "name": "Urban Ladder Recliner Sofa",
+  "category": "Furniture",
+  "image": "https://www.urbanladder.com/images/products/recliner-sofa.jpg",
+  "price": 25999,
+  "rating": 4.5,
+  "description": "Urban Ladder single-seater recliner sofa with plush cushioning.",
+  "brand": "Urban Ladder",
+  "stock": 5
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777b"
+  },
+  "product_id": "M105",
+  "name": "Xiaomi 13 Pro",
+  "category": "Mobile",
+  "image": "https://i01.appmifile.com/webfile/globalimg/products/pc/xiaomi-13-pro.jpg",
+  "price": 79999,
+  "rating": 4.6,
+  "description": "Xiaomi 13 Pro with Snapdragon 8 Gen 2 and Leica optics.",
+  "brand": "Xiaomi",
+  "stock": 13
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777c"
+  },
+  "product_id": "F205",
+  "name": "Under Armour HOVR Phantom 2",
+  "category": "Fashion",
+  "image": "https://underarmour.scene7.com/is/image/Underarmour/3024155-001_DEFAULT?wid=600&hei=600",
+  "price": 10499,
+  "rating": 4.5,
+  "description": "Under Armour HOVR Phantom 2 running shoes with UA HOVR cushioning.",
+  "brand": "Under Armour",
+  "stock": 11
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777d"
+  },
+  "product_id": "E305",
+  "name": "HP Envy x360 Convertible",
+  "category": "Electronics",
+  "image": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06642268.png",
+  "price": 94999,
+  "rating": 4.6,
+  "description": "HP Envy x360 convertible laptop with AMD Ryzen processor.",
+  "brand": "HP",
+  "stock": 8
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777e"
+  },
+  "product_id": "T405",
+  "name": "Fisher-Price Laugh & Learn Smart Stages Chair",
+  "category": "Toys",
+  "image": "https://m.media-amazon.com/images/I/81p+u4c9ZUL._AC_SL1500_.jpg",
+  "price": 3499,
+  "rating": 4.7,
+  "description": "Interactive chair with songs, phrases, and learning content.",
+  "brand": "Fisher-Price",
+  "stock": 10
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b0460777f"
+  },
+  "product_id": "F505",
+  "name": "Nilkamal Plastic Chair Set",
+  "category": "Furniture",
+  "image": "https://www.nilkamalfurniture.com/media/catalog/product/n/i/nilkamal-plastic-chair-set.jpg",
+  "price": 2999,
+  "rating": 4.2,
+  "description": "Set of 2 durable plastic chairs suitable for indoor and outdoor use.",
+  "brand": "Nilkamal",
+  "stock": 20
+},
+{
+  "_id": {
+    "$oid": "6821df36a9e2266b04607780"
+  },
+  "product_id": "M106",
+  "name": "Realme GT Neo 3",
+  "category": "Mobile",
+  "image": "https://image01.realme.net/general/20220323/1648028888.jpg",
+  "price": 36999,
+  "rating": 4.4,
+  "description": "Realme GT Neo 3 with 150W UltraDart Charge and MediaTek Dimensity 8100.",
+  "brand": "Realme",
+  "stock": 17
+}]

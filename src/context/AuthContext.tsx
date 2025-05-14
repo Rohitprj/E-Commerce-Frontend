@@ -12,6 +12,10 @@ export interface Product {
   rating: number;
   brand: string;
   _id: string;
+  description: string;
+  features: string[];
+  descriptions: string[];
+  terms_and_services: string[];
 }
 
 interface AuthContextProp {
