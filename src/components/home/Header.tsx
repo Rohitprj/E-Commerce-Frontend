@@ -16,6 +16,7 @@ export default function Header() {
     { label: "Feature", path: "/feature" },
     { label: "Pricing", path: "/pricing" },
     { label: "Category", path: "/category" },
+    { label: "Wishlist", path: "/wishlist" },
   ];
 
   const baseBtn =
