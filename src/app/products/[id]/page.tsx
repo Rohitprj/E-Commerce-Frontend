@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Product, useAuthContext } from "@/context/AuthContext";
 import { useParams } from "next/navigation";
 import StarRating from "../../../../utils/StarRatings";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 // export default function ProductPage({ params }: { params: { id: string } }) {  // This is only valid in Server Components. Since using "use client" and client-side hooks like useState, useEffect, and useAuthContext(), params will not be automatically passed as a prop in this context.
 export default function ProductPage() {
@@ -34,7 +35,7 @@ export default function ProductPage() {
     <div>
       <Header />
       <SearchArea />
-      <div className="flex border-b-1 py-6 px-26 justify-between">
+      <div className="flex border-b-1 py-6 px-26 justify-between bg-white sticky top-0 z-50">
         <div className="flex items-center gap-5">
           <div
             className="flex items-center bg-pink-400 text-black px-4 py-1 font-medium w-fit"
@@ -92,6 +93,7 @@ export default function ProductPage() {
                 <span>{data.rating} rating</span>
               </div>
             </div>
+
             <div className="p-5">
               <p className="text-base font-bold mb-5">DESCRIPTION :</p>
               <p className="font-bold text-xl mb-3">{data.description}</p>
@@ -142,10 +144,11 @@ export default function ProductPage() {
             </button>
             <div className="flex items-center gap-2 mt-5">
               <button
-                className="cursor-pointer items-center rounded-sm 
+                className="flex justify-between px-5 cursor-pointer items-center rounded-sm 
             border border-black w-[83%] py-3 text-base font-medium transition-all shadow-none"
               >
                 Add to wishlist
+                <IoIosHeartEmpty size={22} />
               </button>
               <button
                 className="flex justify-center items-center cursor-pointer rounded-sm 

@@ -16,15 +16,21 @@ export default function Header() {
     { label: "Feature", path: "/feature" },
     { label: "Pricing", path: "/pricing" },
     { label: "Category", path: "/category" },
+    { label: "Wishlist", path: "/wishlist" },
   ];
 
   const baseBtn =
     "text-lg px-4 py-2 rounded-full transition duration-300 cursor-pointer";
   const activeBtn = "text-white bg-black hover:bg-gray-800";
   const inactiveBtn = "border border-transparent hover:border-black";
-
+  const modHeader = ["/products"];
+  const isSticky = modHeader.includes(pathname);
   return (
-    <header className="w-full border-b bg-white sticky top-0 z-50">
+    <header
+      className={`w-full border-b ${
+        isSticky ? "bg-white sticky top-0 z-50" : ""
+      } `}
+    >
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link
