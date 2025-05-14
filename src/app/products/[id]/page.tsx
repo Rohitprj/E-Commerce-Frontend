@@ -93,42 +93,8 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="p-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed vel
-              voluptas earum dolorem nobis ab eius odit natus animi amet quam
-              explicabo cumque incidunt, consectetur laudantium odio similique
-              dicta esse voluptate ipsum doloribus repellendus recusandae? Illum
-              cupiditate accusamus ipsa, corrupti numquam dolorem distinctio
-              eaque iste consectetur, laborum consequuntur natus aliquid!
-              Officiis ex sed ut alias cupiditate nam ipsam. Recusandae eius
-              fugiat magni odio itaque illum iste repellendus deserunt, at quod
-              mollitia ad culpa earum! Provident earum cumque incidunt
-              necessitatibus corrupti illo temporibus. Molestiae magnam
-              explicabo perferendis qui reprehenderit, id laudantium quos
-              reiciendis iure. Voluptas officiis dolor ex possimus ducimus
-              laudantium, perferendis quae, alias minus, autem doloribus modi?
-              Error repellat, molestias aspernatur, voluptate praesentium, ad
-              dolor sit adipisci officiis repudiandae ipsam explicabo? Similique
-              consectetur, nostrum culpa tempore amet libero provident fugiat
-              magni! Commodi ex non consequuntur dolorum quo facilis eligendi
-              asperiores voluptate consequatur numquam vero, officiis dolore
-              repudiandae harum distinctio veniam unde vel rem incidunt ratione
-              quas perferendis beatae! Consequatur corporis eaque commodi ex.
-              Incidunt dolore nisi id voluptates corporis. Blanditiis sunt fugit
-              natus dolore dolorem numquam sint, maxime exercitationem! Totam
-              rerum iure animi reiciendis corporis atque aliquam expedita eaque!
-              Magnam incidunt nesciunt perspiciatis beatae rem necessitatibus
-              vero nulla voluptas ea modi iusto soluta ipsum dicta ratione,
-              asperiores nemo, fuga deserunt, eligendi quis pariatur est? Ea
-              illo dolor hic amet dicta ipsum ratione blanditiis minus
-              doloremque eos? Corporis possimus commodi nostrum? Veritatis,
-              cumque! Magni voluptatem nihil, blanditiis iure aperiam obcaecati
-              numquam, doloremque ducimus officiis totam aliquam odit, neque sit
-              repudiandae praesentium doloribus officia dignissimos cum quasi.
-              Dolores voluptatibus ducimus esse illo dolore ut voluptas fugiat,
-              fugit ipsa eligendi hic dignissimos inventore consequatur
-              repellendus unde enim eum natus a tempore alias accusantium aut.
-              Culpa possimus odit vero labore repellendus a, sint porro quis
-              fuga, harum ea cumque nulla officia tempora ipsa non?
+              <p className="text-2xl font-medium">Description</p>
+              <p>{data.description}</p>
             </div>
           </div>
 
