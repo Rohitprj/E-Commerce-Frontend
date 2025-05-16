@@ -187,3 +187,79 @@ export const products: Product[] = [
     rating: 4.3,
   },
 ];
+
+// {
+//   "statusCode": 200,
+//   "data": {
+//     "products": [
+//       {
+//         "_id": "6824743557c670c356b55a58",
+//         "name": "Oversized Hoodie",
+//         "slug": "oversized-hoodie-1747225940887",
+//         "description": "A cozy oversized hoodie made from premium cotton.",
+//         "images": [
+//           {
+//             "url": "https://res.cloudinary.com/dprerywyc/image/upload/v1747219507/products/h95aowqr5adutxrexnpk.jpg",
+//             "public_id": "products/h95aowqr5adutxrexnpk",
+//             "_id": "6824743557c670c356b55a5b"
+//           },
+//           {
+//             "url": "https://res.cloudinary.com/dprerywyc/image/upload/v1747219508/products/ojsaxsaedzq6jrqr11jb.jpg",
+//             "public_id": "products/ojsaxsaedzq6jrqr11jb",
+//             "_id": "6824743557c670c356b55a5c"
+//           },
+//           {
+//             "url": "https://res.cloudinary.com/dprerywyc/image/upload/v1747219509/products/p78o0t20u2qopmz45x01.jpg",
+//             "public_id": "products/p78o0t20u2qopmz45x01",
+//             "_id": "6824743557c670c356b55a5d"
+//           }
+//         ],
+//         "sizes": [
+//           {
+//             "size": "S",
+//             "stock": 10,
+//             "_id": "6824743557c670c356b55a5e"
+//           },
+//           {
+//             "size": "M",
+//             "stock": 10,
+//             "_id": "68248d54bcf9ae8f73172090"
+//           },
+//           {
+//             "size": "L",
+//             "stock": 5,
+//             "_id": "68248d54bcf9ae8f73172091"
+//           },
+//           {
+//             "size": "XL",
+//             "stock": 2,
+//             "_id": "68248d54bcf9ae8f73172092"
+//           }
+//         ],
+//         "category": {
+//           "_id": "6814754800d337c1bcf878bd",
+//           "name": "Womens",
+//           "slug": "womens"
+//         },
+//         "mrp": 1200,
+//         "price": 999,
+//         "onSale": true,
+//         "isFeatured": true,
+//         "isWishlist": false,
+//         "isActive": true,
+//         "createdAt": "2025-05-14T10:45:09.515Z",
+//         "updatedAt": "2025-05-15T05:40:24.405Z"
+//       }
+//     ],
+//     "pagination": {
+//       "page": 1,
+//       "limit": 10,
+//       "total": 1,
+//       "pages": 1,
+//       "prev": null,
+//       "next": null
+//     }
+//   },
+//   "message": "Products fetched successfully.",
+//   "success": true
+// }
