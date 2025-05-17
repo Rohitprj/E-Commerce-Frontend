@@ -27,7 +27,7 @@ export default function ProductPage() {
   }, [params.id, getProductById]);
 
   if (!data) {
-    return <div>Loading...</div>; // Show loading message while fetching data
+    return <div>Loading...</div>;
   }
   console.log("Page data", data);
 
