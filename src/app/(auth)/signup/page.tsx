@@ -87,41 +87,49 @@ export default function SignupPage() {
           </p>
         )}
 
-        <label className="font-medium">Email</label>
-        <div className="flex border border-black rounded-sm bg-white px-2 py-2">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full outline-none border-0 px-2"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <label className="font-medium">Password</label>
-        <div className="flex border border-black rounded-sm bg-white px-2 py-2">
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="w-full outline-none border-0 px-2"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <button
-          onClick={() => {
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
             signupApi();
             notify();
           }}
-          disabled={loading}
-          className={`flex items-center justify-center gap-2 px-4 py-2 text-white 
+          className="flex flex-col gap-4"
+        >
+          <label className="font-medium">Email</label>
+          <div className="flex border border-black rounded-sm bg-white px-2 py-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full outline-none border-0 px-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <label className="font-medium">Password</label>
+          <div className="flex border border-black rounded-sm bg-white px-2 py-2">
+            <input
+              type="password"
+              placeholder="Enter your password"
+              className="w-full outline-none border-0 px-2"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`flex items-center justify-center gap-2 px-4 py-2 text-white
             rounded-sm font-semibold transition ${
               loading ? "bg-gray-600" : "bg-black hover:bg-gray-900"
             }`}
-        >
-          {loading ? "Creating..." : "Create Account"}
-        </button>
+          >
+            {loading ? "Creating..." : "Create Account"}
+          </button>
+        </form>
 
         <div className="flex justify-center mt-2">
           <h1>
